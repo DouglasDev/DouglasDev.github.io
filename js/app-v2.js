@@ -47,7 +47,10 @@ function start(){
     MIDI.loadPlugin({
         soundfontUrl: "soundfont/",
         onsuccess: function() {
-
+            window.onbeforeunload = function () {
+                window.scrollTo(0, 0);
+            }
+            
             setupSoundFontInstrument();
 
             Chords.load(songChords);
