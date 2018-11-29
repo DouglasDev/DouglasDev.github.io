@@ -9,7 +9,6 @@ const canvasSelector = document.querySelector("canvas"),
 //Canvas size
 const canvasWidth=600,
       canvasHeight=480,
-      rect = canvasSelector.getBoundingClientRect();
       lineWidth=20;
 
 const frameRate = 60;
@@ -43,9 +42,9 @@ let currentRhythm;
 
 let visualNotes = []; //array of all notes to display onscreen with 
 
-let mouseY = 0,
+let mouseY = 200,
     mouseIsDown,
-    storedMouseY=240;
+    storedMouseY=200;
 
 let currentNoteIndex = 20; //position in array of all notes
 
