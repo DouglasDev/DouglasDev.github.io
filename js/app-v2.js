@@ -113,12 +113,13 @@ function setupSoundFontInstrument(){
 
         //canvasSelector.addEventListener("mouseup", endNote);
         document.addEventListener("mousemove", function(e){
-            storedMouseY=e.clientY
-            if (cursorControl==true) findClosestAllowedMouseY(e.clientY);
+            storedMouseY=e.pageY
+            if (cursorControl==true) findClosestAllowedMouseY(e.pageY);
         });
 
         document.addEventListener("mousedown", function playNewNote(e) {
-            findClosestAllowedMouseY(e.clientY);
+            console.log(canvasSelector.getBoundingClientRect())
+            findClosestAllowedMouseY(e.pageY);
             newNote(harpsichord);
         });
 

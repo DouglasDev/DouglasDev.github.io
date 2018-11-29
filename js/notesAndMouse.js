@@ -220,8 +220,8 @@ function drawNotes() {
 
 function findClosestAllowedMouseY(mouseY) {
 
-    let canvasPosition = canvasSelector.getBoundingClientRect();
-    let yOffset = canvasPosition.y + 5;
+    //let canvasPosition = canvasSelector.getBoundingClientRect();
+    let yOffset = canvasSelector.offsetTop + 5;
 
     let chord = Chords.getCurrentChord();
     let allowedPitches = chord.allPitches;
@@ -238,14 +238,14 @@ function findClosestAllowedMouseY(mouseY) {
             upper > lower ? newMouseY = allowedPitches[i - 1].y : newMouseY = allowedPitches[i].y;
 
             mouseY = newMouseY;
-            currentNoteIndex = Math.round((mouseY - canvasPosition.top) / 10) + 8;
+            currentNoteIndex = Math.round((mouseY - canvasSelector.offsetTop) / 10) + 8;
             break;
         }
     }
     //if pitch is lower than lowest pitch in chord
     if (allowedPitches[allowedPitches.length - 1].y < newMouseY) {
         mouseY = allowedPitches[allowedPitches.length - 1].y
-        currentNoteIndex = Math.round((mouseY - canvasPosition.top) / 10) + 8;
+        currentNoteIndex = Math.round((mouseY - canvasSelector.offsetTop) / 10) + 8;
     }
 
 
