@@ -19,7 +19,7 @@ var vivaldiLaFollia =[
 { chord: 'Dm', beats: 6}, { chord: 'A7', beats: 6 },{ chord: 'Dm', beats: 6 },
 { chord: 'C', beats: 6 },{ chord: 'F', beats: 6 },{ chord: 'C', beats: 6 },
 { chord: 'Dm', beats: 2 },{ chord: 'A7', beats: 4 },{ chord: 'Dm', beats: 6},
-]
+];
 
 
 
@@ -29,7 +29,7 @@ function prepareRepeatedChordArray(arr){
     for (let i=0;i<repeats;i++){
         arr.forEach(el=>{
             newArray.push({chord:el.chord,beats:el.beats,keySig:el.keySig});
-        })
+        });
     }
     return newArray;
 }

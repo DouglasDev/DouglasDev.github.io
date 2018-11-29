@@ -26,6 +26,7 @@ function prepareChordTimeAndPitchArray(array){
             if(teoria.chord(chord.keySig[0]).dominant('7').name== chord.chord|| 
                 teoria.chord(chord.keySig[0]).dominant().name==chord.chord){
                 chord.scale= teoria.scale(chord.keySig[0],'melodicminor').simple();
+                chord.isDominant=true;
             }
             else{chord.scale= teoria.scale(...chord.keySig).simple();}
         }
@@ -43,7 +44,8 @@ function prepareChordTimeAndPitchArray(array){
             currentChordNotes.forEach((note,index) => {
                 if (allNotes[e].note == note || getEnharmonic(allNotes[e].note) == note){
                     //console.log(pitchToYPosition(allNotes[e].pitch))
-                    rootNote = (index==0)
+                    if (chord.isDominant!=true) rootNote = (index==0);
+                    else rootNote = (index==1);
                     chord.allPitches.push({'index':e,
                                            'rootNote':rootNote, 
                                            'pitch':allNotes[e].pitch,
@@ -57,7 +59,7 @@ function prepareChordTimeAndPitchArray(array){
 }
 
 function getEnharmonic(note){
-   return teoria.note(note).enharmonics(true).toString().split('').splice(-3,2).join('');
+    if (note!=undefined) return teoria.note(note).enharmonics(true).toString().split('').splice(-3,2).join('');
 }
 
 
@@ -78,7 +80,15 @@ let Chords = {
             if((chordRight<600 && chordRight>0) || (chordLeft<600 && chordLeft>0)|| (chordRight>600 && chordLeft<0)){
                 //console.log(index)
                 let current;
-                index==this.getCurrentChord().index ? current=true : current=false
+                   // console.log(this.getCurrentChord().index)
+                   let currentChordIndex;
+                   if (this.getCurrentChord()==undefined){
+                    currentChordIndex=0;
+                   }
+                   else{
+                    currentChordIndex=this.getCurrentChord().index;
+                   }
+                index==currentChordIndex ? current=true : current=false
 
                 chord.allPitches.forEach(pitchData=>{
                     let color;

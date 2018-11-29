@@ -1,15 +1,11 @@
 FEATURES:
--implement chromatic note types for motif
--20+ motifs
--select different songs
--live version on github.io
--motif speed changes depending on BPM
+-20+ motifs -half done
+-implement note length visuals for motif
+-add more songs
 
 -BUGS:
 
-
 MINOR FEATURES:
--implement note length visuals for motif
 -dominant 7th in bright red
 
 FUTURE FEATURES:
