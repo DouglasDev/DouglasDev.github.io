@@ -1,81 +1,141 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Douglas Lerner - Portfolio</title>
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header>
+		<h3><a href="#contact">Contact</a></h3>
+		<h3><a href="#about">About</a></h3>
+		<h3><a href="#projects">Projects</a></h3>
+		<h3><a href="#resume">Resume</a></h3>
+	</header>
+	<main>
 
-    	<link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC" rel="stylesheet">
-    </head>
+	<div id="top">
+		<div id="contact">
+			<br><br><br><br>
+			<h1>Douglas Lerner</h1>
+			<h2>Web Developer</h2>
+		</div>
 
-    <body>
-        <div class="main-text">
-            <h2>Harpsichord Hero</h2>
-            <p> 
-                <select id="songDropDown">
-                    <option value="LaFollia">La Follia - Vivaldi</option>
-                    <option value="WinterLargo">Winter Mvt. 2 Largo - Vivaldi</option>
-                  <!--  <option value="AdagioAlbinoni">Adagio - Albinoni</option> -->
-                </select>
-                <button id="start-button" onclick="start()">Start</button>
-            </p>
-        </div>        
-        <img class="right-img" src="images/baroque-music.jpg" alt="ensemble">
-        <img class="left-img" src="images/vivaldirockstyle21li-vi.jpg" alt="Vivaldi">
-        <img class="right-img" src="images/Bach-Shades-2.jpg" alt="Bach">
-        <img class="left-img" src="images/carousel_harpsichord.jpg" alt="harpsichord with orchestra">
+		<div id="myWebsites">
+			<br><br><br><br><br>
+			<h3>Github: <a href="https://github.com/DouglasDev">https://github.com/DouglasDev</a> </h3>
+			<h3>Linkedin: <a href="https://www.linkedin.com/in/douglas-lerner-66590467/">https://www.linkedin.com/in/douglas-lerner-66590467/</a></h3>
+			<h3>Email: <a id="revealEmail" href=# onclick=showEmail()>Click to show email address</a></h3>
+		</div>
+	</div>
 
-        
-        <canvas width="600" height="480"></canvas>
-        
-        <div class="main-text">
-            <h2>Get ready to rock out like it's 1685!</h2>
-            <h3>Controls: <br>
-                <u>left click:</u> play chord tones,
-                <u>mouse+space:</u> move cursor,
-                <u>number key row:</u> play chords <br>
-                <u>letter keys - top 2 rows:</u> play motifs and ornaments,
-                <u>letter keys - bottom row:</u> select rhythm<br>
-                <u>Shift:</u> invert motif,
-                <u>Tab/Enter:</u> next motif descend <br>
-                <img id="keyboard-layout" src="images/keyboard layout.png" alt="keyboard layout">
-            </h3>
-        </div>
-    </body>
+	<div id="aboutSection">
+		<div><img src="self.jpeg" alt="me"></div>
+		<div>	
+		<h2 id="about">
+			<br><br><br>
+			About Me
+		</h2>
+			<p>
+				I am a web developer based in New York City. I have a passion for creating web apps that connect people, educate, and entertain. I recently completed a 3 month batch at the <a href="http://www.recurse.com">Recurse Center</a>, which is a 3 month full-time self-directed programming retreat. During that time, I worked on a variety of projects, both as part of a team and alone, which touched on areas of programming that include browser extension development, game development, machine learning, natural language processing, genetic algorithms, and computer generated music. In my previous career, I worked as an ESL teacher and Chinese translator, and I often incorporate this expertise into my projects. I have experience working with a variety of web-based technologies including:
+			</p>
+			<ul>
+				<li>JavaScript</li>
+				<li>HTML5</li>
+				<li>CSS3</li>
+				<li>React</li>
+				<li>Node</li>
+				<li>Express</li>
+				<li>WebRTC</li>
+				<li>Phaser</li>
+				<li>Websockets</li>
+				<li>Web Audio</li>
+				<li>Three.js</li>
+				<li>Tone.js</li>
+				<li>HTML Canvas</li>
+				<li>Chrome API</li>
+				<li>Webpack</li>
+			</ul>
+		</div>
 
-        <script src="vendors/jquery-3.3.1.min.js"></script>
-        <script src="vendors/teoria.js"></script>
-        <script src="vendors/soundfont-player.min.js"></script>
+	</div>
 
-            <!-- shim -->
-        <script src="midi-player/inc/shim/Base64.js" type="text/javascript"></script>
-        <script src="midi-player/inc/shim/Base64binary.js" type="text/javascript"></script>
-        <script src="midi-player/inc/shim/WebAudioAPI.js" type="text/javascript"></script>
-        <script src="midi-player/inc/shim/WebMIDIAPI.js" type="text/javascript"></script>
-        <!-- jasmid package -->
-        <script src="midi-player/inc/jasmid/stream.js"></script>
-        <script src="midi-player/inc/jasmid/midifile.js"></script>
-        <script src="midi-player/inc/jasmid/replayer.js"></script>
-        <!-- midi.js package -->
-        <script src="midi-player/js/midi/audioDetect.js" type="text/javascript"></script>
-        <script src="midi-player/js/midi/gm.js" type="text/javascript"></script>
-        <script src="midi-player/js/midi/loader.js" type="text/javascript"></script>
-        <script src="midi-player/js/midi/plugin.audiotag.js" type="text/javascript"></script>
-        <script src="midi-player/js/midi/plugin.webaudio.js" type="text/javascript"></script>
-        <script src="midi-player/js/midi/plugin.webmidi.js" type="text/javascript"></script>
-        <script src="midi-player/js/midi/player.js" type="text/javascript"></script>
-        <script src="midi-player/js/midi/synesthesia.js" type="text/javascript"></script>
-        <!-- utils -->
-        <script src="midi-player/js/util/dom_request_xhr.js" type="text/javascript"></script>
-        <script src="midi-player/js/util/dom_request_script.js" type="text/javascript"></script>
+	<h2 id="projects">
+		<br><br>
+		Recent Projects
+	</h2>
+	
+	<div id="projectsSection">
+		<div>
+			<h3>LeetCode Pairing Chrome Extension</h3>
+			<img class="screenshot" src="./projects/leetcode pairing screenshot.png" alt="LeetCode Pairing Chrome Extension"><br>
+			<p>A Chrome extension which enables coders to pair program over the internet and solve LeetCode.com algorithm coding challenges together. Users can type into a shared text editor and video chat in real time, all in the browser. <br><br>
+			<em>Technologies Used</em>: React, Node Express, Chrome API, Oauth2, WebRTC, Socket.io, Codemirror API, Webpack<br>
+			download: <a target="_blank" href="https://chrome.google.com/webstore/detail/leetcode-pairing/jeonpfbokpeagbojffcijgpcpldgebfb">Chrome Web Store - LeetCode Pairing </a><br>
+			source code: <a target="_blank" href="https://github.com/MerkleBros/leetcode-pairing-chrome-extension">github.com/MerkleBros/leetcode-pairing-chrome-extension</a></p>
+		</div>
+		<div>	
+			<h3>Harpsichord Hero</h3>
+			<img class="screenshot" src="./projects/harpsichordHero/screenshot.png" alt="Harpsichord Hero"><br>
+			<p>
+			A digital musical instrument that allows people with no musical background to improvise harpischord music in the baroque style. The instrument has a built-in knowledge of harmony and musical style, which allows users to effortlessly improvise complex melodies and chord progressions.<br><br>
+			<em>Technologies Used</em>: HTML canvas, Teoria.js, Soundfont-Player, MIDI.js<br>
+			live demo: <a target="_blank" href="./projects/harpsichordHero/index.html">Harpsichord Hero</a><br>
+			source code: <a target="_blank" href="https://github.com/DouglasDev/Harpsichord-Hero">github.com/DouglasDev/Harpsichord-Hero</a></p>
+		</div>
+		<div>		
+			<h3>EvolutionScript</h3>
+			<img class="screenshot" src="./projects/EvolutionScript/evolutionscript.png" alt="EvolutionScript"><br>
+			<p> Genetic programming in the browser. The user enters a series of integers representing the desired output of a program, and the app generates hundreds of random abstract syntax trees which are converted into JavaScript programs, evaluated and sorted based on performance. The fittest ASTs are allowed to reproduce, mutate, and evolve, producing programs who's output approximates the user's input. <br><br>
+			<em>Technologies Used</em>: Vanilla JavaScript<br>
+			live demo: <a target="_blank" href="./projects/EvolutionScript/index.html">EvolutionScript</a><br>
+			source code: <a target="_blank" href="https://github.com/DouglasDev/General-AI">github.com/DouglasDev/General-AI</a></p>
+		</div>
+		<div>	
+			<h3>Cyberpunks Rock Climbing</h3>
+			<img class="screenshot" src="./projects/cyberpunks client/Screenshot.png" alt="Cyberpunks Rock Climbing"><br>
+			<p>A multiplayer, cooperative, physics-based rock climbing game. The players must scale the cliff without putting too much weight on any one limb, or they will fall off. Up to four players can join a game, with each player controlling a different limb.<br><br>
+			<em>Technologies Used</em>: Phaser, P2 Physics engine, Node Express, Socket.io<br>
+			live demo: <a target="_blank" href="./projects/cyberpunks client/index.html">Cyberpunks Rock Climbing</a><br>
+			source code: <a target="_blank" href="https://github.com/jven/cyberpunks">github.com/jven/cyberpunks</a></p>
+		</div>
+		<div>			
+			<h3>Mandarin Shadowboxing</h3>
+			<img class="screenshot" src="./projects/Mandarin Shadow Boxing/screenshot.png" alt="Mandarin Shadowboxing"><br>
+			<p>
+			A tool for learning spoken Mandarin Chinese which breaks down complex sentences into their simplest components allowing for rapid language aquisition. Based off the "shadowing" technique of language professor Alexander Arguelles, in which students learn phrases in a foreign language through imitation of recordings of native speakers. <br><br>
+			<em>Technologies Used</em>: JQuery and Howler.js <br>
+			live demo: <a target="_blank" href="./projects/Mandarin Shadow Boxing/Mandarin_Shadow_Boxing.html">Mandarin Shadow Boxing</a><br>
+			source code: <a target="_blank" href="https://github.com/DouglasDev/mandarin-shadow-boxing">github.com/DouglasDev/mandarin-shadow-boxing</a></p>
+		</div>
+		<div>	
+			<h3>Neuro-Evolution Cocktail Party</h3>
+			<img class="screenshot" src="./projects/Cocktail Party Neuro Evolution/screenshot2.png" alt="Neuro-Evolution Cocktail Party"><br>
+			<img class="screenshot" src="./projects/Cocktail Party Neuro Evolution/screenshot 1.png" alt="NeuroEvolution Cocktail Party 2"><br>
+			<p>
+			A simulation of human social interactions, which evolves social agents that can adapt to one another's behaviors. Uses a JavaScript implementation of the NEAT (Neuro Evolution through Augmented Topology) genetic algorithm, which evolves neural networks through the process of Darwinian evolution. <br><br>
+			<em>Technologies Used</em>: Vanilla JS and Neatapic.js<br>
+			live demo: <a target="_blank" href="./projects/Cocktail Party Neuro Evolution/index.html">Neuro-Evolution Cocktail Party</a><br>
+			source code: <a target="_blank" href="https://github.com/DouglasDev/Neuro-Evolution-Cocktail-Party">github.com/DouglasDev/Neuro-Evolution-Cocktail-Party</a></p>
+		</div>
+	</div>
 
-        <script src="soundfont/string_ensemble_2-ogg.js" type="text/javascript"></script>
+	<h2 id="resume">
+		<br>
+		My Resume
+	</h2>
 
-        <script src="js/timing.js" type="text/javascript" defer></script>
-        <script src="js/notesAndMouse.js" type="text/javascript" defer></script>
-        <script src="js/chordsAndScales.js" type="text/javascript" defer></script>
-        <script src="js/view.js" type="text/javascript" defer></script>
-        <script src="js/instumentData.js" type="text/javascript" defer></script>
-        <script src="js/songData.js" type="text/javascript" defer></script>
-        <script src="js/app-v2.js" type="text/javascript" defer></script>
+	</main>
+</body>
+<script>
+	let email="1d1o1u1g18181@1p1r1o1t1o1n1m1a1i1l1.1c1o1m1"
 
+function showEmail(){
+	arr=email.split('')
+	email=arr.filter(char=>char!='1').join('')
+	document.getElementById("revealEmail").innerText=email
+}
+
+</script>
 </html>
