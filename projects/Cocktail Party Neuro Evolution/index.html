@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cocktail Party Neuro-Evolution</title>
+	<style>
+    textarea {
+      font-family: monospace;
+    }
+    textarea svg{
+			display: inline;
+		}
+		button{
+
+		}
+	</style>
+</head>
+<body>
+	<button onclick=start('new')>start new population</button>
+	<button onclick=start('load')>load previous</button>
+	<button onclick=save()>save networks</button>
+	<button onclick=play(400)>play</button>
+	<button onclick=play(10)>play fast</button>
+	<button onclick=pause()>pause</button>
+	<button onclick=skip(10)>skip 10 generations</button>
+	<button onclick=skip(100)>skip 100 generations</button>
+	<button onclick=skip(1000)>skip 1000 generations</button>
+	<span id=generations></span><br>
+
+
+	<textarea rows="25" cols="24" id="view"></textarea>
+	<textarea rows="25" cols="100" id="info"></textarea>
+	<svg class="draw" width="800px" height="800px"/>
+</body>
+    <link rel="stylesheet" type="text/css" href="graph.css">
+    <script src="graph.js"></script>
+    <script src="libs/cola.v3.min.js"></script>
+    <script src="libs/d3.v3.min.js"></script>
+	<script src="libs/neataptic.js"></script>
+	<script src="neat setup.js"></script>
+	<script src="view.js"></script>
+	<script src="main.js"></script>
+</html>
