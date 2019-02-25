@@ -2,8 +2,7 @@ body{
 	font-size: 16px;
 	word-wrap: normal;
 	font-family: 'Lato', sans-serif;
-	background-image: linear-gradient(rgba(240, 230, 255, 0.8), rgba(255, 240, 230, 0.8)),
-       url("./bamboo_background.jpg");
+	background-color: rgba(255, 240, 230, 0.8);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -34,6 +33,14 @@ header h3{
 	margin: 5px 20px 5px 20px;
 }
 
+a{
+	text-decoration: none;
+}
+a:hover { 
+  text-decoration: underline;
+}
+
+
 #about,#projects,#resume{
 	text-align: center;
 }
@@ -56,6 +63,11 @@ header h3{
 	margin-left: auto;
 }
 
+
+#top{
+	justify-content: space-around;
+}
+
 #projectsSection{
 	flex-wrap: wrap;
 	justify-content: space-evenly;
@@ -70,10 +82,23 @@ header h3{
 	max-width: 500px;
 }
 
+#skillsList{
+	columns: 2;
+}
+
 #myWebsites h3{
 	word-wrap: break-word;
 }
 
 .screenshot{
 	width: 500px;
+}
+
+#myWebsites img {
+margin-right: 15px;
+vertical-align:middle;
+}
+
+#myWebsites h3{
+	margin: 10px;
 }
