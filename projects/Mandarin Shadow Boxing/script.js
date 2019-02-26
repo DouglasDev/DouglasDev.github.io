@@ -5,7 +5,7 @@ let sentenceList={
       englishLiteral:'I now eat rice.',
       zhongwen:'我 在 吃 米饭。',
       pinyin:'Wǒ zài chī mǐfàn.',
-      startTimes:[325, 470, 683, 896],
+      startTimes:[305, 470, 683, 896],
       endTime:1600
 },
 'iWentForAWalkInThePark':{
@@ -23,7 +23,7 @@ let sentenceList={
       englishLiteral:'I live at one big city inside.',
       zhongwen:'我 住 在 一个 大 城市 里。',
       pinyin:'Wǒ zhù zài yīgè dà chéngshì lǐ.',
-      startTimes:[285,430,616,818,1025,1237,1712],
+      startTimes:[260,430,616,818,1025,1237,1712],
       endTime:1972
 },
 'toomuchcoffee':{
@@ -150,8 +150,8 @@ function generateWordArray(sentenceString){
 function generateSpritesArray(startTimes,endTime){
   let spritesArray=[];
     //sprite format: [start time,duration] (in ms)
-  let offsetEnd=130;
-  let offsetBegin=40;
+  let offsetEnd=150;
+  let offsetBegin=60;
 
   //whole sentence sprite
   spritesArray.push([startTimes[0],(endTime-startTimes[0])]);
@@ -195,7 +195,7 @@ function generateSentenceAudio(file,spritesArray){
   )
 
   let sentenceAudio = new Howl({
-    rate:.75,
+    rate:1.0,
     src: [file],
     sprite: spriteObject
   });
