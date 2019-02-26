@@ -150,7 +150,8 @@ function generateWordArray(sentenceString){
 function generateSpritesArray(startTimes,endTime){
   let spritesArray=[];
     //sprite format: [start time,duration] (in ms)
-  let offset=110;
+  let offsetEnd=130;
+  let offsetBegin=40;
 
   //whole sentence sprite
   spritesArray.push([startTimes[0],(endTime-startTimes[0])]);
@@ -158,22 +159,22 @@ function generateSpritesArray(startTimes,endTime){
   for (let n=0;n<startTimes.length;n++){
     if (n==startTimes.length-1){
           //calculate duration of final sprite
-      spritesArray.push([startTimes[n],(endTime-startTimes[n])]);
+      spritesArray.push([startTimes[n]-offsetBegin,(endTime-startTimes[n])]);
     }
     else{
           //calculate duration of all other sprites
-      spritesArray.push([startTimes[n],(startTimes[n+1]-startTimes[n])-offset]);
+      spritesArray.push([startTimes[n]-offsetBegin,(startTimes[n+1]-startTimes[n])-offsetEnd]);
     }
   }
   //sentence fragment sprites
   for (let n=0;n<startTimes.length;n++){
     if (n==startTimes.length-1){
           //calculate duration of final sprite
-      spritesArray.push([startTimes[0],(endTime-startTimes[0])]);
+      spritesArray.push([startTimes[0]-offsetBegin,(endTime-startTimes[0])]);
     }
     else{
           //calculate duration of all other sprites
-      spritesArray.push([startTimes[0],(startTimes[n+1]-startTimes[0])-offset]);
+      spritesArray.push([startTimes[0]-offsetBegin,(startTimes[n+1]-startTimes[0])-offsetEnd]);
     }
   }
   return spritesArray;
