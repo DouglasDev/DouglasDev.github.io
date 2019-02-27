@@ -4,10 +4,7 @@ body{
 	font-size: 16px;
 	word-wrap: normal;
 	font-family: 'Lato', sans-serif;
-	background-color: rgba(255, 240, 230, 0.8);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+	background-color: rgba(240, 240, 240, 0.8);
 }
 
 header{
@@ -47,7 +44,6 @@ a:hover {
 	text-decoration-color: initial;
 	-webkit-text-decoration-color: initial;
  	-moz-text-decoration-color: initial;
-
 }
 
 
