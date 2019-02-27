@@ -1,4 +1,6 @@
 body{
+	opacity:0;
+    transition: opacity 1.5s;
 	font-size: 16px;
 	word-wrap: normal;
 	font-family: 'Lato', sans-serif;
@@ -34,10 +36,18 @@ header h3{
 }
 
 a{
-	text-decoration: none;
+	text-decoration: underline;
+	text-decoration-color: transparent;
+	-webkit-text-decoration-color: transparent;
+ 	-moz-text-decoration-color: transparent;
+	transition-property: all;
+  	transition: 300ms;
 }
 a:hover { 
-  text-decoration: underline;
+	text-decoration-color: initial;
+	-webkit-text-decoration-color: initial;
+ 	-moz-text-decoration-color: initial;
+
 }
 
 
