@@ -6,37 +6,33 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
 </head>
-<body onload="document.body.style.opacity='1'">
+<body>
 	<header>
-		<h3><a href="#contact">Contact</a></h3>
-		<h3><a href="#about">About</a></h3>
-		<h3><a href="#projects">Projects</a></h3>
+		<div>
+			<h3><a href="#top">About</a></h3>
+			<h3><a href="#projects">Projects</a></h3>
+			<h3><a href="./Douglas Lerner Web Developer Resume.pdf" target="_blank">Resume</a></h3>
+		</div>
+		<div>
+			<h3><a href="https://github.com/DouglasDev"><img src="GitHub-Mark-Light-64px.png" alt="GitHub">Github</a> </h3>
+			<h3><a href="https://www.linkedin.com/in/douglas-lerner-66590467/"><img src="Logo-White-66px-TM.png" alt="Linkedin" style="    height: 17px;"></a></h3>
+			<h3><a id="revealEmail" href=# onclick=showEmail()><img src="email-300x300.png" alt="Email">Email</a></h3>
+		</div>
+		
+
 	</header>
+	<a id="top"></a>
 	<main>
-
-	<div id="top">
-		<div id="contact">
-			<br><br><br><br>
-			<h1>Douglas Lerner</h1>
-			<h2>Web Developer</h2>
-		</div>
-
-		<div id="myWebsites">
-			<br><br><br><br><br>
-			<h3><a href="https://github.com/DouglasDev"><img src="GitHub-Mark-32px.png" alt="GitHub">Github</a> </h3>
-			<h3><a href="https://www.linkedin.com/in/douglas-lerner-66590467/"><img src="linkedin_circle.png" alt="Linkedin">Linkedin</a></h3>
-			<h3><a id="revealEmail" href=# onclick=showEmail()><img src="icons8-envelope-32.png" alt="Email">Email</a></h3>
-			<h3><a href="./Douglas Lerner Web Developer Resume.pdf"><img src="icons8-resume-32.png" alt="Resume">Resume</a></h3>
-		</div>
-	</div>
-
 	<div id="aboutSection">
-		<div><img src="self.jpeg" alt="me"></div>
+		<div id="contact">
+			<div >
+				<h1>Douglas Lerner</h1>
+				<h2>Web Developer</h2>
+			</div>
+			<img src="self.jpeg" alt="me">
+		</div>
 		<div>	
-		<h2 id="about">
-			<br><br><br>
-			About Me
-		</h2>
+			<h2 id="about" style="margin-bottom: 2rem;">About Me</h2>
 			<p>
 				I am a web developer based in New York City. I have a passion for creating web apps that connect people, educate, and entertain. </p>
 			<p>I recently completed a 3 month batch at the <a href="http://www.recurse.com">Recurse Center</a>, which is a 3 month full-time self-directed programming retreat. During that time, I worked on a variety of projects, both as part of a team and alone, which touched on areas of programming that include browser extension development, game development, machine learning, natural language processing, genetic algorithms, and computer generated music. </p>
@@ -73,55 +69,55 @@
 	
 	<div id="projectsSection">
 		<div>
-			<h3>LeetCode Pairing Chrome Extension</h3>
+			<h3 class="project-title">LeetCode Pairing Chrome Extension</h3>
 			<img class="screenshot" src="./projects/leetcode pairing screenshot.png" alt="LeetCode Pairing Chrome Extension"><br>
 			<p>A Chrome extension which enables coders to pair program over the internet and solve LeetCode.com algorithm coding challenges together. Users can type into a shared text editor and video chat in real time, all in the browser. <br><br>
 			<em>Technologies Used</em>: React, Node Express, Chrome API, Oauth2, WebRTC, Socket.io, Codemirror API, Webpack<br><h3>
-			<a target="_blank" href="https://chrome.google.com/webstore/detail/leetcode-pairing/jeonpfbokpeagbojffcijgpcpldgebfb">Download </a>&emsp;&emsp;
+			<a target="_blank" href="https://chrome.google.com/webstore/detail/leetcode-pairing/jeonpfbokpeagbojffcijgpcpldgebfb">Download</a>&emsp;&emsp;
 			<a target="_blank" href="https://github.com/MerkleBros/leetcode-pairing-chrome-extension">Github Repo</a></p></h3>
 		</div>
 		<div>	
-			<h3>Harpsichord Hero</h3>
+			<h3 class="project-title">Harpsichord Hero</h3>
 			<img class="screenshot" src="./projects/harpsichordHero/screenshot.png" alt="Harpsichord Hero"><br>
 			<p>
 			A digital musical instrument that allows people with no musical background to improvise harpischord music in the baroque style. The instrument has a built-in knowledge of harmony and musical style, which allows users to effortlessly improvise complex melodies and chord progressions.<br><br>
 			<em>Technologies Used</em>: HTML canvas, Teoria.js, Soundfont-Player, MIDI.js<br><h3>
-			<a target="_blank" href="./projects/harpsichordHero/index.html">Live Demo </a>&emsp;&emsp;
+			<a target="_blank" href="./projects/harpsichordHero/index.html">Live Demo</a>&emsp;&emsp;
 			<a target="_blank" href="https://github.com/DouglasDev/Harpsichord-Hero">Github Repo</a></p></h3>
 		</div>
 		<div>		
-			<h3>EvolutionScript</h3>
+			<h3 class="project-title">EvolutionScript</h3>
 			<img class="screenshot" src="./projects/EvolutionScript/evolutionscript.png" alt="EvolutionScript"><br>
 			<p> Genetic programming in the browser. The user enters a series of integers representing the desired output of a program, and the app generates hundreds of random abstract syntax trees which are converted into JavaScript programs, evaluated and sorted based on performance. The fittest ASTs are allowed to reproduce, mutate, and evolve, producing programs who's output approximates the user's input. <br><br>
 			<em>Technologies Used</em>: Vanilla JavaScript<br><h3>
-			<a target="_blank" href="./projects/EvolutionScript/index.html">Live Demo </a>&emsp;&emsp;
+			<a target="_blank" href="./projects/EvolutionScript/index.html">Live Demo</a>&emsp;&emsp;
 			<a target="_blank" href="https://github.com/DouglasDev/General-AI">Github Repo</a></p></h3>
 		</div>
 		<div>	
-			<h3>Cyberpunks Rock Climbing</h3>
+			<h3 class="project-title">Cyberpunks Rock Climbing</h3>
 			<img class="screenshot" src="./projects/cyberpunks client/Screenshot.png" alt="Cyberpunks Rock Climbing"><br>
 			<p>A multiplayer, cooperative, physics-based rock climbing game. The players must scale the cliff without putting too much weight on any one limb, or they will fall off. Up to four players can join a game, with each player controlling a different limb.<br><br>
 			<em>Technologies Used</em>: Phaser, P2 Physics engine, Node Express, Socket.io<br><h3>
-			<a target="_blank" href="./projects/cyberpunks client/index.html">Live Demo </a>&emsp;&emsp;
+			<a target="_blank" href="./projects/cyberpunks client/index.html">Live Demo</a>&emsp;&emsp;
 			<a target="_blank" href="https://github.com/jven/cyberpunks">Github Repo</a></p></h3>
 		</div>
 		<div>			
-			<h3>Mandarin Shadowboxing</h3>
+			<h3 class="project-title">Mandarin Shadowboxing</h3>
 			<img class="screenshot" src="./projects/Mandarin Shadow Boxing/screenshot.png" alt="Mandarin Shadowboxing"><br>
 			<p>
 			A tool for learning spoken Mandarin Chinese which breaks down complex sentences into their simplest components allowing for rapid language acquisition. Based off the "shadowing" technique of language professor Alexander Arguelles, in which students learn phrases in a foreign language through imitation of recordings of native speakers. <br><br>
 			<em>Technologies Used</em>: JQuery and Howler.js <br><h3>
-			<a target="_blank" href="./projects/Mandarin Shadow Boxing/Mandarin_Shadow_Boxing.html">Live Demo </a>&emsp;&emsp;
+			<a target="_blank" href="./projects/Mandarin Shadow Boxing/Mandarin_Shadow_Boxing.html">Live Demo</a>&emsp;&emsp;
 			<a target="_blank" href="https://github.com/DouglasDev/mandarin-shadow-boxing">Github Repo</a></p></h3>
 		</div>
 		<div>	
-			<h3>Neuro-Evolution Cocktail Party</h3>
+			<h3 class="project-title">Neuro-Evolution Cocktail Party</h3>
 			<img class="screenshot" src="./projects/Cocktail Party Neuro Evolution/screenshot2.png" alt="Neuro-Evolution Cocktail Party"><br>
 			<img class="screenshot" src="./projects/Cocktail Party Neuro Evolution/screenshot 1.png" alt="NeuroEvolution Cocktail Party 2"><br>
 			<p>
 			A simulation of human social interactions, which evolves social agents that can adapt to one another's behaviors. Uses a JavaScript implementation of the NEAT (Neuro Evolution through Augmented Topology) genetic algorithm, which evolves neural networks through the process of Darwinian evolution. <br><br>
 			<em>Technologies Used</em>: Vanilla JS and Neatapic.js<br><h3>
-			<a target="_blank" href="./projects/Cocktail Party Neuro Evolution/index.html">Live Demo </a>&emsp;&emsp;
+			<a target="_blank" href="./projects/Cocktail Party Neuro Evolution/index.html">Live Demo</a>&emsp;&emsp;
 			<a target="_blank" href="https://github.com/DouglasDev/Neuro-Evolution-Cocktail-Party">Github Repo</a></p></h3>
 		</div>
 	</div>

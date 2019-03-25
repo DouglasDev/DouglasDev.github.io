@@ -1,28 +1,46 @@
 body{
-	opacity:0;
-    transition: opacity 1.5s;
 	font-size: 16px;
 	word-wrap: normal;
 	font-family: 'Lato', sans-serif;
-	background-color: rgba(240, 240, 240, 0.8);
 }
 
 header{
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
-	background:  rgba(230, 230, 230, .8);
-	border-radius: 5px;
-	box-shadow: 10px 10px 29px -7px rgba(0,0,0,0.41);
+	justify-content: space-between;
+	background:  #6a6f99;
+	box-shadow: 10px 10px 29px -7px rgba(0,0,0,0.3);
 	position: fixed;
-	width: 100%
+	width: 100%;
+    top: 0;
+    left: 0;
 }
 
+header div{
+	display: flex;
+}
+
+header a{
+	color: white;
+	font-size: 16px;
+}
+header img{
+    height: 18px;
+    margin-bottom: -3px;
+    margin-right: 3px;
+}
 main{
 	width: 90%;
 	margin-right: auto;
 	margin-left: auto;
 }
+
+#contact{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 
 p,li{
 	line-height: 150%;
@@ -32,7 +50,9 @@ header h3{
 	margin: 5px 20px 5px 20px;
 }
 
+
 a{
+	color: #6a6f99;
 	text-decoration: underline;
 	text-decoration-color: transparent;
 	-webkit-text-decoration-color: transparent;
@@ -40,48 +60,67 @@ a{
 	transition-property: all;
   	transition: 300ms;
 }
-a:hover { 
-	text-decoration-color: initial;
+
+a:hover{ 
+ 	text-decoration-color: initial;
 	-webkit-text-decoration-color: initial;
  	-moz-text-decoration-color: initial;
 }
 
+header a{
+    border-bottom: 2px rgb(255,255,255,0) solid;
+	transition-property: all;
+  	transition: 300ms;
+	text-decoration: none;
+}
+header a:hover{
+	border-bottom: 2px rgb(255,255,255,1) solid;
+}
 
 #about,#projects,#resume{
 	text-align: center;
 }
 
 #aboutSection{
-	align-items: center;
+	margin-top: 7rem;
 }
 
 #aboutSection>div{
 	margin-right: 20px;
 	margin-left: 20px;
+	width: 50%;
 }
 
-#top, #aboutSection, #projectsSection{
+#top{
+	position: absolute;
+	top: 0;
+}
+
+#aboutSection{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	width: 95%;
-	margin-right: auto;
-	margin-left: auto;
-}
-
-
-#top{
-	justify-content: space-around;
 }
 
 #projectsSection{
-	flex-wrap: wrap;
-	justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    	margin-right: auto;
+	margin-left: auto;
+width: fit-content;
+width: -webkit-fit-content;
+width: -moz-fit-content;
+
+}
+#projectsSection .project-title{
+	text-align: center;
 }
 
 #projectsSection>div{
 	padding-left: 20px;
-	padding-right: 20px
+	padding-right: 20px;
+	    margin-top: 5rem;
 }
 
 #projectsSection>div>p{
