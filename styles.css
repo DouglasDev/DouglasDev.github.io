@@ -40,7 +40,12 @@ main{
     align-items: center;
     flex-direction: column;
 }
-
+#me{
+	-webkit-box-shadow: 4px 6px 14px 0px rgba(0,0,0,0.36);
+	-moz-box-shadow: 4px 6px 14px 0px rgba(0,0,0,0.36);
+	box-shadow: 4px 6px 14px 0px rgba(0,0,0,0.36);
+	border-radius: 4px;
+}
 
 p,li{
 	line-height: 150%;
