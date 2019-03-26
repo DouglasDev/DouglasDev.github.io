@@ -45,6 +45,7 @@ function drawNoteSymbol(x,y,color,type){
 function drawNote(beat, pitch, type){
     if (type==undefined) type='quarter';
     let y= pitchToYPosition(pitch);
+    if (!y) return; //note out of range
     let beatNow=timer.getCurrentBeat();
     let x =canvasWidth+((beat-beatNow)*75-offset*2)
 
@@ -57,12 +58,14 @@ function drawNote(beat, pitch, type){
 }
 
 function pitchToYPosition(pitch){
+    if (!pitch )return;
     let pitchIndex;
     allNotes.forEach((el,index)=>{
         if (el.pitch==pitch || el.enharmonicPitch==pitch){
             pitchIndex=index;
         }
     });
+
     return pitchIndex*lineWidth/2;
 }
 
