@@ -151,7 +151,7 @@ function generateSpritesArray(startTimes,endTime){
   let spritesArray=[];
     //sprite format: [start time,duration] (in ms)
   let offsetEnd=0//150;
-  let offsetBegin=0//60;
+  let offsetBegin=20//60;
 
   //whole sentence sprite
   spritesArray.push([startTimes[0],(endTime-startTimes[0])]);
