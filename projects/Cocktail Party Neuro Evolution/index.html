@@ -3,34 +3,59 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Cocktail Party Neuro-Evolution</title>
-	<style>
-    textarea {
-      font-family: monospace;
-    }
-    textarea svg{
+  <link href='https://fonts.googleapis.com/css?family=Exo+2:400,900italic,900,800italic,800,700italic,700,600italic,600,500italic,500,400italic,300italic,300,200italic,200,100italic,100' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="styles.css">
+<style>
+	main{
+    	margin: 1rem auto;
+   	    display: block !important;
+	    width: 67rem;
+	}
+	textarea {
+	  /*font-family: monospace;*/
+	      text-align: center;
+      background: gainsboro;
+	}
+	textarea svg{
 			display: inline;
-		}
-		button{
-
-		}
-	</style>
+	}
+	#controls{
+		width: fit-content;
+    	margin: 1rem auto 0;
+   	    display: flex;
+	}
+	#textDisplay{
+		margin: auto;
+	    width: fit-content;
+	}
+	svg{
+		margin: auto;
+    	display: block;
+   	    /*background: gainsboro;*/
+	}
+</style>
 </head>
 <body>
-	<button onclick=start('new')>start new population</button>
-	<button onclick=start('load')>load previous</button>
-	<button onclick=save()>save networks</button>
-	<button onclick=play(400)>play</button>
-	<button onclick=play(10)>play fast</button>
-	<button onclick=pause()>pause</button>
-	<button onclick=skip(10)>skip 10 generations</button>
-	<button onclick=skip(100)>skip 100 generations</button>
-	<button onclick=skip(1000)>skip 1000 generations</button>
-	<span id=generations></span><br>
+	<main class="futurepanel">
+		<div id="controls">
+			<button class="futurebutton" onclick=start('new')>start new population</button>
+			<button class="futurebutton" onclick=start('load')>load previous</button>
+			<button class="futurebutton" onclick=save()>save networks</button>
+			<button class="futurebutton" onclick=play(400)>play</button>
+			<button class="futurebutton" onclick=play(10)>play fast</button>
+			<button class="futurebutton" onclick=pause()>pause</button><br>
+			<button class="futurebutton" onclick=skip(10)>skip 10 generations</button>
+			<button class="futurebutton" onclick=skip(100)>skip 100 generations</button>
+			<button class="futurebutton" onclick=skip(1000)>skip 1000 generations</button>
+		</div>
+		<span id=generations></span><br>
 
-
-	<textarea rows="25" cols="24" id="view"></textarea>
-	<textarea rows="25" cols="100" id="info"></textarea>
-	<svg class="draw" width="800px" height="800px"/>
+		<div id="textDisplay">
+			<textarea rows="25" cols="24" id="view"></textarea>
+			<textarea rows="25" cols="80" id="info"></textarea>
+		</div>
+		<svg class="draw" width="800px" height="800px"/>
+	</main>
 </body>
     <link rel="stylesheet" type="text/css" href="graph.css">
     <script src="graph.js"></script>

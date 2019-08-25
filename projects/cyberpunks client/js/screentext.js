@@ -23,8 +23,9 @@ cyberpunks.ScreenText = function(game) {
   this.lastReportsText_.fixedToCamera = true;
 
   // Initialize all text.
-  this.updateRosterText('?', []);
-  this.updateLastReportsText([]);
+  // this.updateRosterText('?', []);
+  // this.updateLastReportsText([]);
+  this.updateLastReportsText("Hint: Drag the skeleton's hands and feet onto the holds. \nBe mindful of how much weight each limb is supporting.");
 };
 
 cyberpunks.ScreenText.prototype.updateRosterText = function(
@@ -44,5 +45,6 @@ cyberpunks.ScreenText.prototype.updateRosterText = function(
 };
 
 cyberpunks.ScreenText.prototype.updateLastReportsText = function(reports) {
-  this.lastReportsText_.text = JSON.stringify(reports);
+  // this.lastReportsText_.text = JSON.stringify(reports);
+  this.lastReportsText_.text = reports
 };

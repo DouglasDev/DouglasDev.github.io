@@ -4,8 +4,8 @@ const inputType=7,generationLength=50
 
 let started=false;
 
-let wall="-".repeat(gridDimensions*2+2)
-
+let wall="⎼".repeat(gridDimensions*2+2)
+let bottomWall='⎼'.repeat(gridDimensions*2+2)
 let grid
 
 function makeGrid(){
