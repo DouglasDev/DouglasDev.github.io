@@ -9,6 +9,16 @@ body {
     -webkit-user-select: none;
     user-select: none;
 }
+#controls{
+    width: 42rem;
+    text-align: left;
+    margin: auto;
+}
+.shadow{
+    -webkit-box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.75);
+}
 
 .main-text {
     font-family: 'IM Fell English SC', serif;

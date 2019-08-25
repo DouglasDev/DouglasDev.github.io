@@ -19,25 +19,27 @@
                 <button id="start-button" onclick="start()">Start</button>
             </p>
         </div>        
-        <img class="right-img" src="images/baroque-music.jpg" alt="ensemble">
-        <img class="left-img" src="images/vivaldirockstyle21li-vi.jpg" alt="Vivaldi">
-        <img class="right-img" src="images/Bach-Shades-2.jpg" alt="Bach">
-        <img class="left-img" src="images/carousel_harpsichord.jpg" alt="harpsichord with orchestra">
+        <img class="right-img shadow" src="images/baroque-music.jpg" alt="ensemble">
+        <img class="left-img shadow" src="images/vivaldirockstyle21li-vi.jpg" alt="Vivaldi">
+        <img class="right-img shadow" src="images/Bach-Shades-2.jpg" alt="Bach">
+        <img class="left-img shadow" src="images/carousel_harpsichord.jpg" alt="harpsichord with orchestra">
 
         
-        <canvas width="600" height="480"></canvas>
+        <canvas width="600" height="480" class="shadow"></canvas>
         
         <div class="main-text">
             <h2>Get ready to rock out like it's 1685!</h2>
-            <h3>Controls: <br>
-                <u>left click:</u> play chord tones,
-                <u>mouse+space:</u> move cursor,
+            <br><h3>Controls: <br>
+            <div id="controls">
+                <u>left click:</u> play chord tones 
+                <u>mouse+space:</u> move cursor<br>
                 <u>number key row:</u> play chords <br>
-                <u>letter keys - top 2 rows:</u> play motifs and ornaments,
+                <u>letter keys - top 2 rows:</u> play motifs and ornaments<br>
                 <u>letter keys - bottom row:</u> select rhythm<br>
-                <u>Shift:</u> invert motif,
+                <u>Shift:</u> invert motif 
                 <u>Tab/Enter:</u> next motif descend <br>
-                <img id="keyboard-layout" src="images/keyboard layout.png" alt="keyboard layout">
+            </div>
+            <img id="keyboard-layout" src="images/keyboard layout.png" class="shadow" alt="keyboard layout">
             </h3>
         </div>
     </body>
