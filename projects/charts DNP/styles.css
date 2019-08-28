@@ -1,0 +1,250 @@
+body{
+	font-family: "SF Pro Display", "Lato", sans-serif;
+	white-space: nowrap;
+}
+
+*:focus {outline:0;}
+
+
+#top,#bottom{
+	display: flex;
+	 flex-direction: row;
+	 margin: 50px;
+}
+
+
+main{
+	width: 90%;
+	margin: auto;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: white;
+	color: #6A6A6A;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  padding-top: 5px;
+  max-height: 33px;
+  outline: none;
+  height: 10px;
+  padding-bottom: 0;
+      min-height: 24px;
+     height: 3rem;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: white;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown-chart {
+  position: relative;
+  display: inline-block;
+  padding: 15px;
+padding-bottom: 0;
+padding-top: 20px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+	margin-left: -35px;
+  position: absolute;
+  background-color: #F7F7F7;
+  min-width: 160px;
+  z-index: 1;
+border-radius: 6px;
+    max-height: 0;
+  overflow: hidden;
+  transition: all 0.2s ease-out;
+-webkit-box-shadow: 1px 3px 10px 0px rgba(0,0,0,0.1);
+-moz-box-shadow: 1px 3px 10px 0px rgba(0,0,0,0.1);
+box-shadow: 1px 3px 10px 0px rgba(0,0,0,0.1);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  	padding-top: 6px;
+	padding-bottom: 6px;
+	color: #6A6A6A;
+
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: #EF9144;
+	color: white;	
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+.legendSquare{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	border-radius: 5px;
+	vertical-align: middle;
+	display: table-cell;
+	float: left;
+	margin-right: 10px
+}
+
+#locations-title{
+	margin-bottom: 0px;
+}
+
+.active-chart{
+	border: 1.5px solid #EF9144;
+	border-radius: 5px;
+	box-sizing: border-box;
+   padding: 0px 5px !important;
+   padding-left: 9px !important;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+.active-chart span{
+	height: 28px;
+}
+
+a{
+	transition: all 0.5s ease;
+	text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  width: 250px;
+  padding-left: 0;
+}
+.legendEl{
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+    width: fit-content;
+    border-radius: 5px;
+    display: table;
+cursor: pointer;
+box-sizing: border-box;
+min-height: 33px;
+max-height: 33px;
+}
+.legendEl>span{
+	vertical-align: middle;
+	display: table-cell;
+	color: #6A6A6A;
+}
+
+.legend{
+	float: right;
+}
+
+#sortLocation{
+	cursor: pointer;
+	padding-bottom: 15px;
+	color: #6A6A6A;
+	width: 220px;
+}
+
+.chartTitle, .dropdown-chart{
+	margin: 0 auto;
+	font-size: 20px;
+}
+
+.chartTitle{
+	color: #116189
+}
+.top-left{
+	display: flex;
+	flex-direction: column;
+}
+.top-right{
+	display: flex;
+	flex-direction: row;
+    margin-left: 115px;
+}
+.right-legend{
+	margin-top: 5rem;
+    margin-left: 70px;
+	margin-top: 37px;
+	padding-top: 63px;
+	width: 189px;
+}
+.left-chart{
+	display: flex;
+	flex-direction: column;
+}
+
+#bottom{
+	align-items: center;
+    margin-top: 120px;
+}
+
+/* #intentOfUse,#devices,#payerMix{
+	max-width: 250px;
+	max-height: 250px;
+} */
+
+
+#devices-legend{
+	width: 200px;
+}
+
+#location-legend{
+	max-height: 200px;
+    overflow: hidden;
+}
+
+
+#location{
+	padding-top: 23px;
+
+}
+
+#location-dropdown.dropdown-chart{
+    padding-bottom: 20px;
+        padding-top: 20px;
+
+}
+
+.lower-legend{
+	width: 200px;
+	padding-right: 20px;
+    padding-left: 40px;
+    margin-top: 3rem;
+}
+
+#submitted-forms-dropdown{
+	margin-left: -23px;
+}
+
+[class="3-legend"]{
+	width: 262px;
+}
+#intentOfUse-legend{width:270px;}
+
+.close-icon{
+	margin-top: 0px;
+    margin-bottom: -9px;
+}
+
+.lowerChartTitle{
+	text-align: center;
+	margin-right: 25px;
+}
+
+.bottom-divider{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Charts</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="queries.css">
+<link rel="stylesheet" href="simplebar.css" />
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="SF-Pro-Display-Regular.otf" rel="stylesheet">
+
+<script src="simplebar.js"></script>
+<script src="http://momentjs.com/downloads/moment.js"></script>
+
+</head>
+<body>	
+
+    <main class="Charts">
+        <div id="top">
+            <div class='top-left'>
+                <div class='chartTitle'>SUBMITTED FORMS</div>
+                <div class="dropdown-chart">
+                  <button onclick="myFunction('submittedFormsDropdown')" class="dropbtn" id="SubmittedFormsDropdownButton">Daily <img class="dropbtnCaret" src="./img/icon-dropdown-arrow-charts.svg" alt=""></button>
+                  <div id="submittedFormsDropdown" class="dropdown-content">
+                    <a href="#" onclick="changeSubmittedFormsData('daily')">Daily</a>
+                    <a href="#" onclick="changeSubmittedFormsData('weekly')">Weekly</a>
+                    <a href="#" onclick="changeSubmittedFormsData('monthly')">Monthly</a>
+                    <a href="#" onclick="changeSubmittedFormsData('annually')">Annually</a>
+                  </div>
+                </div>
+                <canvas id="submittedForms" width="724" height="350"></canvas>
+            </div>
+            <div class='top-right'>
+                <div class='left-chart'>
+                    <div class='chartTitle' id="locations-title">LOCATIONS</div>
+                    <div class="dropdown-chart" id="location-dropdown">
+                      <button onclick="myFunction('locationDropdown')" class="dropbtn" id="locationDropdownButton">State <img class="dropbtnCaret" src="./img/icon-dropdown-arrow-charts.svg" alt=""></button>
+                      <div id="locationDropdown" class="dropdown-content">
+                        <a href="#" onclick="changeLocationData('city')">City</a>
+                        <a href="#" onclick="changeLocationData('state')">State</a>
+                        <a href="#" onclick="changeLocationData('country')">Country</a>
+                      </div>
+                    </div>
+                    <canvas id="location" width="255" height="255"></canvas>
+                </div>
+                <div class='right-legend'>
+                    <div id="sortLocation" onclick="changeSortOrder()">Sort: Highest To Lowest <img src="./img/icon-sort-arrows.svg" alt="" style="padding-left:15px"></div>
+                    <div id="location-legend" class="noselect"></div>
+                </div>
+            </div>
+        </div>
+        <div id="bottom">
+            <div class="bottom-divider">
+                <div>
+                    <div class='chartTitle lowerChartTitle'>DEVICES</div>
+                    <canvas id="devices" width="250" height="250"></canvas>
+                </div>
+                <div id="devices-legend" class="lower-legend"></div>
+            </div>
+            <div class="bottom-divider" id="intent-divider">
+                <div id="intentOfUseContainer">
+                    <div class='chartTitle lowerChartTitle'>INTENT OF USE</div>
+                    <canvas id="intentOfUse" width="250" height="250"></canvas>
+                </div>
+                <div id="intentOfUse-legend" class="lower-legend"></div>
+            </div>  
+            <div class="bottom-divider" id="payer-divider">
+                <div>
+                    <div class='chartTitle lowerChartTitle' id="payerMix-title">PAYER MIX</div>
+                    <canvas id="payerMix" width="250" height="250"></canvas>
+                </div>
+                <div id="payerMix-legend" class="lower-legend"></div>
+            </div>
+        </div>
+    </main>
+</body>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="./vendors/Chart.bundle.min.js"></script>
+	<script src="main.js"></script>
+</html>
