@@ -108,12 +108,13 @@ header a:hover{
 }
 
 #aboutSection{
-    padding: 1rem;
-    border-radius: 23px;
-    border: 4px solid #6a6f99;
-    left: 1rem;
+  padding: 1rem;
+  border-radius: 23px;
+  border: 4px solid #6a6f99;
+  box-shadow: 3px 3px 0px 1px rgba(119,121,141,.8);
+  left: 1rem;
 	margin-top: 4rem;
-    position: fixed;
+  position: fixed;
    	/*width: 95%;*/
 }
 
@@ -163,7 +164,7 @@ vertical-align:middle;
 }
 
 
-@media only screen and (max-width: 1125px) {
+@media only screen and (max-width: 1155px) {
   body {
   }
   main{
@@ -207,7 +208,7 @@ vertical-align:middle;
 	}
 }
 
-@media only screen and (max-height: 725px) and (min-width: 1126px) {
+@media only screen and (max-height: 725px) and (min-width: 1156px) {
 	#aboutSection{
 		position: absolute;
 	}
