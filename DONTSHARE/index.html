@@ -17,8 +17,7 @@
 <body>
 	<main id="app">
 		<div v-if="!se">
-			<input type="text" v-model="p">
-		    <button @click="trustButVerify(p)">enter</button><br><br>
+			<input type="text" placeholder="enter password" v-model="p"><button @click="trustButVerify(p)">enter</button><br><br>
 		</div>
 		<div id="se" v-if="se">
 			<div style="margin: auto;width: fit-content;">
