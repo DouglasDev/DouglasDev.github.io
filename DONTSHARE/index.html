@@ -7,33 +7,15 @@
 <style>
 	.se,main{
 		width: 50rem;
-		margin: 5rem auto;
+		margin: 5rem auto 0;
 		display: flex;
 		align-items: center;
 		flex-direction: column;
 		line-height: 1.5;
 	}
 </style>
-<body>
-	<main id="app">
-		<div v-if="!se">
-			<input type="text" placeholder="enter password" v-model="p"><button @click="trustButVerify(p)">enter</button><br><br>
-		</div>
-		<div id="se" v-if="se">
-			<div style="margin: auto;width: fit-content;">
-				<input type="text" placeholder="enter id" v-model="id"><button @click="getCode(id)">get code</button>
-			</div>
-			<br><br>
-			<div id="codeOutput" v-for="el in arr">
-				ID: <strong>{{el.id}}</strong> 
-				Individual Code: <strong>{{el.individual}}</strong> <button @click="copyToClipboard(el.individual)">copy</button>
-				Group Code: <strong>{{el.group}}</strong> <button @click="copyToClipboard(el.group)">copy</button>
-			</div>
-		</div>
-	</main>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<body><div id="app"></div></body>
+<script src="vue.min.js"></script>
 <script src="./s.js"></script>
-<script src="./ob.js"></script>
-<!-- <script src="./script.js"></script> -->
+<script src="./script.js"></script>
 </html>
