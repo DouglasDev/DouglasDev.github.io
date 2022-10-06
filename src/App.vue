@@ -27,7 +27,7 @@
           </p>
           <p>
             <a target="_blank" href="./Douglas Lerner - Web Developer Resume.pdf" class="pure-button pure-button-primary top-button">Resume</a>
-            <a target="_blank" href="mailto:doug88@protonmail.com" class="pure-button pure-button-primary top-button">Email</a>
+            <a target="_blank" href="mailto:douglasdev8888@gmail.com" class="pure-button pure-button-primary top-button">Email</a>
             <a target="_blank" href="https://github.com/DouglasDev" class="pure-button pure-button-primary top-button">Github</a>
             <a target="_blank" href="https://www.linkedin.com/in/douglas-lerner-66590467/" class="pure-button pure-button-primary top-button">Linkedin</a>
           </p>
@@ -326,7 +326,7 @@ export default {
       selectedWorks: 'All',
       selectedWork: {},
       works: [{
-          src: "projects/The Chrome Extension Cover.png",
+          src: "projects/eComments.png",
           title: 'e-Comments',
           type: ['Work', 'Educational', 'Front-End', 'Browser Extensions'],
           tech: ['VueJS', 'Vuex', 'Web Speech API', 'Google Drive API'],
@@ -346,7 +346,7 @@ export default {
           links: [{ type: 'Official Website', link: 'https://www.kittiefight.io/' }]
         },
         {
-          src: "projects/harpischord-hero.png",
+          src: "projects/harpsichord-hero.png",
           title: 'Harpsichord Hero',
           type: ['Projects', 'Music', 'Front-End'],
           tech: ['HTML canvas', 'Teoria.js', 'Soundfont-Player', 'MIDI.js'],
@@ -399,7 +399,7 @@ export default {
           ]
         },
         {
-          src: "projects/EvolutionScript/evolutionscript.png",
+          src: "projects/evolutionscript.png",
           title: 'EvolutionScript',
           type: ['Projects', 'Machine Learning', 'Front-End'],
           tech: ['Vanilla JavaScript'],
@@ -410,7 +410,7 @@ export default {
           ]
         },
         {
-          src: "projects/Mandarin Shadow Boxing/screenshot.png",
+          src: "projects/shadow-boxing.png",
           title: 'Mandarin Shadow Boxing',
           type: ['Projects', 'Educational', 'Front-End'],
           tech: ['jQuery', 'Howler.js'],
