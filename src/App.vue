@@ -352,7 +352,7 @@ export default {
           tech: ['HTML canvas', 'Teoria.js', 'Soundfont-Player', 'MIDI.js'],
           description: `A digital musical instrument that allows people with no musical background to improvise harpischord music in the baroque style. The instrument has a built-in knowledge of harmony and musical style, which allows users to effortlessly improvise complex melodies and chord progressions.`,
           details: ``,
-          links: [{ type: 'Live Demo', link: './projects/harpsichordHero/index.html' },
+          links: [{ type: 'Live Demo', link: 'https://douglasdev.github.io/Harpsichord-Hero' },
             { type: 'Github', link: 'https://github.com/DouglasDev/Harpsichord-Hero' }
           ]
         },
@@ -405,7 +405,7 @@ export default {
           tech: ['Vanilla JavaScript'],
           description: `Genetic programming in the browser. The user enters a series of integers representing the desired output of a program, and the app generates hundreds of random abstract syntax trees which are converted into JavaScript programs, evaluated and sorted based on performance. The fittest ASTs are allowed to reproduce, mutate, and evolve, producing programs who's output approximates the user's input.`,
           details: ``,
-          links: [{ type: 'Live Demo', link: "./projects/EvolutionScript/index.html" },
+          links: [{ type: 'Live Demo', link: "https://douglasdev.github.io/General-AI" },
             { type: 'Github Repo', link: "https://github.com/DouglasDev/General-AI" },
           ]
         },
@@ -416,7 +416,7 @@ export default {
           tech: ['jQuery', 'Howler.js'],
           description: `A tool for learning spoken Mandarin Chinese which breaks down complex sentences into their simplest components allowing for rapid language acquisition. Based off the "shadowing" technique of language professor Alexander Arguelles, in which students learn phrases in a foreign language through imitation of recordings of native speakers.`,
           details: ``,
-          links: [{ type: 'Live Demo', link: "./projects/Mandarin Shadow Boxing/Mandarin_Shadow_Boxing.html" },
+          links: [{ type: 'Live Demo', link: "https://douglasdev.github.io/mandarin-shadow-boxing" },
             { type: 'Github Repo', link: "https://github.com/DouglasDev/mandarin-shadow-boxing" },
           ]
         },
