@@ -212,7 +212,7 @@ export default {
           this.animate();
         }
         createBoxes() {
-          this.geometry = new THREE.BoxBufferGeometry(1, 10, 1);
+          this.geometry = new THREE.BoxGeometry(1, 10, 1);
 
           let vertexShader = `
             varying vec2 vUv;
@@ -268,7 +268,7 @@ export default {
               if (newRowBlock==3)street+=offset*2
 
               // let obj = cube.clone();
-            let obj = new THREE.Mesh(new THREE.BoxBufferGeometry(1*Math.random()*2, 10+Math.random()*10-5, 1*Math.random()*2), material);
+            let obj = new THREE.Mesh(new THREE.BoxGeometry(1*Math.random()*2, 10+Math.random()*10-5, 1*Math.random()*2), material);
               obj.position.x = (row * offset) - ((this.nRows * 0.5) + (this.geometry.parameters.width * 0.5))+street;
               obj.position.y = -(this.geometry.parameters.height * 0.5);
               obj.position.z = (column * offset) - ((this.nCols * 0.5) + (this.geometry.parameters.width * 0.5))+avenue;
@@ -346,7 +346,7 @@ export default {
           links: [{ type: 'Official Website', link: 'https://www.kittiefight.io/' }]
         },
         {
-          src: "projects/harpsichordHero/screenshot.png",
+          src: "projects/harpischord-hero.png",
           title: 'Harpsichord Hero',
           type: ['Projects', 'Music', 'Front-End'],
           tech: ['HTML canvas', 'Teoria.js', 'Soundfont-Player', 'MIDI.js'],
