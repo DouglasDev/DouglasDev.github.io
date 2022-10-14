@@ -1,0 +1,111 @@
+const resumeData = {
+    "name": "Douglas Lerner",
+    "label": "Web Developer"
+    "url": "douglasdev.github.io",
+    "email": "douglasdev8888@gmail.com",
+    "location": {
+      "city": "Brooklyn",
+      "countryCode": "US",
+      "region": "New York"
+    },
+    "skills": {
+        "languages": [
+            "ES6+ JavaScript",
+            "CSS3",
+            "SCSS",
+            "HTML5",
+            "Python",
+            "Elm",
+        ]
+        "Frameworks and Tools": [
+            "React",
+            "Redux",
+            "Vue",
+            "Node.js",
+            "Express",
+            "jQuery",
+            "Git",
+            "Webpack",
+            "Gulp",
+            "Jest"
+        ]
+    },
+    "work": [
+        {
+            "name": "SuperDAO",
+            "startDate": "March 2019",
+            "endDate": "August 2019"
+            "position":"Co-Lead Front-End Developer",
+            "highlights": [
+                "Designed and built front-end architecture for KittieFight, a unique CryptoKitties Etherium Dapp",
+                "Implemented user interfaces, menus, and game flow logic using React + Redux",
+                "Integrated Phaser 3 game engine to sync blockchain data with Spine animations + sounds",
+
+            ]
+        },
+        {
+            "name": "Pennington Publishing",
+            "startDate": "April 2019",
+            "endDate": "August 2019",
+            "position":"Browser Extension Developer",
+            "highlights": [
+                "Sole developer of e-Comments Chrome Extension that has gained 700+ users per month",
+                "Automates essay feedback using comment banks, video/audio comments, and speech-to-text",
+                "Utilizes Vue, Vuex, Web Speech API and Google Drive API",
+            ]
+        } {
+            "name": "iASO Records",
+            "startDate": "June 2019",
+            "endDate": "June 2021",
+            "position":"Mobile Developer",
+            "highlights": [
+                "Developed interactive mobile drum app using Tone.js, SVG, Vue, and Cordova",
+                "Users lead a virtual percussion ensemble by mixing-and-matching rhythms for a variety of instruments",
+            ]
+        }, {
+            "name": "Freelance Web Developer",
+            "startDate": "2017",
+            "endDate": "2021",
+            "highlights": [
+                "Awarded Top Freelancer on Upwork, with 100% job success rating",
+                "Built interactive animated sales dashboard for medical supply company using Chart.js",
+                "Implemented responsive company homepage based on Adobe XD designs",
+                "Automated communication with clients for multiple businesses by utilizing Google Sheets API to dynamically generate email invoices and notifications",
+                "Improved UX for multiple Wordpress and Wix based businesses with custom form validation scripts",
+            ]
+        },
+        {
+            "name": "University of Geosciences",
+              "startDate": "Sept. 2016",
+            "endDate": "July 2017",
+            "position":"Instructor",
+            "location": "Wuhan, China",
+            "highlights": [
+                "Taught European cultural history and conversational English to undergraduates",
+                "Designed custom bilingual curriculum using primary historical sources and multimedia"
+            ]
+
+        }
+    ],
+    "education": [{
+            "institution": "Recurse Center",
+              "startDate": "November 2018",
+      "endDate": "February 2019",
+            "description": "Intensive self-directed programming retreat where I worked on a variety of group and individual projects:"
+            "highlights": [
+                "LeetCode Pairing Chrome Extension - Enables coders to pair program remotely on LeetCode algorithm challenges in the browser, utilizing text and video chat. Node.js, WebSockets and WebRTC",
+                "Cyberpunks Rock Climbing - Integrated P2 physics engine, WebSockets, Node.js Express server and level editor into a multiplayer, cooperative, physics-based rock climbing game",
+                "Harpsichord Hero - A digital harpsichord with a built-in knowledge of harmony and musical style which allows users to effortlessly improvise complex melodies and chord progressions",
+                "Neuro-Evolution Cocktail Party - Uses a JavaScript implementation of a neuro-evolutionary algorithm to evolve neural networks that simulate human social interactions"
+            ]
+
+        },
+        {
+            "institution": "Stony Brook University, New York - B.Sc. Biochemistry",
+            "highlights": [
+                "Researched capacity of marine cyanobacteria to absorb atmospheric CO2 at aquatic ecosystem ecology lab"
+            ]
+
+        }
+    ]
+}
