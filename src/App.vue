@@ -26,7 +26,7 @@
             NYC Based Web Developer
           </p>
           <p>
-            <a target="_blank" href="./Douglas Lerner - Web Developer Resume.pdf" class="pure-button pure-button-primary top-button">Resume</a>
+            <a target="_blank" href="https://docs.google.com/document/d/1c1_kVXluuXLo7WPebGXqj607Ez_LvSNCj8MCMf0HUxU/edit?usp=sharing" class="pure-button pure-button-primary top-button">Resume</a>
             <a target="_blank" href="mailto:douglasdev8888@gmail.com" class="pure-button pure-button-primary top-button">Email</a>
             <a target="_blank" href="https://github.com/DouglasDev" class="pure-button pure-button-primary top-button">Github</a>
             <a target="_blank" href="https://www.linkedin.com/in/douglas-lerner-66590467/" class="pure-button pure-button-primary top-button">Linkedin</a>
@@ -608,6 +608,7 @@ main {
 }
 
 #skills {
+  overflow: hidden;
   background: #f5f5f5;
 }
 
