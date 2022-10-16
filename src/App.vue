@@ -80,33 +80,17 @@
         </div>
         <div class="ribbon" id="about">
           <div class="contact-form">
-            <div class="pure-g">
-              <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
-                <h2 class="content-head-ribbon is-left">About Me</h2>
-                <p>
-                  I create web apps that connect people, educate, and entertain. I've worked on variety of projects for multiple start-ups, small businesses, a publishing house, and a record company.
-                </p>
-                <p>
-                  Last year, I completed a batch at the <a href="http://www.recurse.com">Recurse Center</a>, which is a 3 month full-time self-directed programming retreat. While there, I immersed myself in projects that involved browser extension development, game development, machine learning, natural language processing, genetic algorithms, and computer generated music.
-                </p>
-                <p>
-                  In addition to programming, I have experience working as an ESL teacher and Chinese translator, as well as a background in classical music and biology, and I often incorporate this expertise into my projects.
-                </p>
-              </div>
-              <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-                <h2 class="content-head-ribbon is-left">Contact Me</h2>
-                <p>
-                  I'm currently looking for full-time work. Don't hestate to get in touch!
-                </p>
-                <form class="pure-form pure-form-stacked contact-form-container" action="https://formspree.io/xeqjaajb" method="POST">
-                  <fieldset>
-                    <input id="name" type="text" placeholder="Name" name="Name" required>
-                    <input id="email" type="email" placeholder="Email" name="Email" required>
-                    <textarea id="message" type="text" placeholder="Message" name="Message" required></textarea>
-                    <button type="submit" class="pure-button">Send</button>
-                  </fieldset>
-                </form>
-              </div>
+            <div class="l-box-lrg pure-u-1 pure-u-md" id="about-info">
+              <h2 class="content-head-ribbon is-left">About Me</h2>
+              <p>
+                I create web apps that connect people, educate, and entertain. I've worked on variety of projects for multiple start-ups, small businesses, a publishing house, and a record company.
+              </p>
+              <p>
+                Last year, I completed a batch at the <a href="http://www.recurse.com">Recurse Center</a>, which is a 3 month full-time self-directed programming retreat. While there, I immersed myself in projects that involved browser extension development, game development, machine learning, natural language processing, genetic algorithms, and computer generated music.
+              </p>
+              <p>
+                In addition to programming, I have experience working as an ESL teacher and Chinese translator, as well as a background in classical music and biology, and I often incorporate this expertise into my projects.
+              </p>
             </div>
           </div>
           <div class="stars">
@@ -812,6 +796,10 @@ label {
 .l-box-lrg {
   padding: 2em;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#about-info{
+  padding: 2em 2em 0;
 }
 
 .is-center {
