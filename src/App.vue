@@ -34,7 +34,7 @@
         <p>
           <a
             target="_blank"
-            href="https://docs.google.com/document/d/1c1_kVXluuXLo7WPebGXqj607Ez_LvSNCj8MCMf0HUxU/edit?usp=sharing"
+            href="https://docs.google.com/document/d/1QQjtQ4zaqK7AGpVyH0gjsIOc6iS1IwilJn3VmbnLVV8/edit?usp=sharing"
             class="pure-button pure-button-primary top-button"
             >Resume</a
           >
