@@ -1,14 +1,15 @@
 //var socket = io();
 var game = new Phaser.Game(
-    cyberpunks.Config.SCREEN_WIDTH,
-    cyberpunks.Config.SCREEN_HEIGHT,
-    Phaser.AUTO,
-    '',
-    {
-      preload: preloadFn,
-      create: createFn,
-      update: updateFn
-    });
+  cyberpunks.Config.SCREEN_WIDTH,
+  cyberpunks.Config.SCREEN_HEIGHT,
+  Phaser.AUTO,
+  '',
+  {
+    preload: preloadFn,
+    create: createFn,
+    update: updateFn,
+  },
+);
 var climber;
 var course;
 var screenText;
@@ -17,33 +18,49 @@ var socketManager;
 function preloadFn() {
   game.load.image('background', 'bg.png');
   game.load.image('wood', './wood.jpeg');
-  
+
   cyberpunks.SpriteLoader.loadClimberSprites(game, 'skeleton');
   cyberpunks.SpriteLoader.loadHoldSprites(game);
-};
+}
 
 function createFn() {
   game.add.tileSprite(
-      0, 0,
-      cyberpunks.Config.GAME_WIDTH, cyberpunks.Config.GAME_HEIGHT,
-      'wood');
+    0,
+    0,
+    cyberpunks.Config.GAME_WIDTH,
+    cyberpunks.Config.GAME_HEIGHT,
+    'wood',
+  );
   game.world.setBounds(
-      0, 0,
-      cyberpunks.Config.GAME_WIDTH, cyberpunks.Config.GAME_HEIGHT);
+    0,
+    0,
+    cyberpunks.Config.GAME_WIDTH,
+    cyberpunks.Config.GAME_HEIGHT,
+  );
 
   game.physics.startSystem(Phaser.Physics.P2JS);
   game.physics.p2.gravity.y = cyberpunks.Config.GRAVITY_Y;
 
   var collisionGroups = new cyberpunks.CollisionGroups(game);
   course = cyberpunks.Courses.randomSpriteGrid(
-      game, collisionGroups,
-      0, 0,
-      cyberpunks.Config.GAME_WIDTH, cyberpunks.Config.GAME_HEIGHT,
-      60, 180);
+    game,
+    collisionGroups,
+    0,
+    0,
+    cyberpunks.Config.GAME_WIDTH,
+    cyberpunks.Config.GAME_HEIGHT,
+    60,
+    180,
+  );
   climber = new cyberpunks.Climber(
-      game, collisionGroups, cyberpunks.Config.CLIMBER_SIZE);
+    game,
+    collisionGroups,
+    cyberpunks.Config.CLIMBER_SIZE,
+  );
   climber.moveEntireBodyTo(
-      cyberpunks.Config.GAME_WIDTH / 2, cyberpunks.Config.GAME_HEIGHT - 300);
+    cyberpunks.Config.GAME_WIDTH / 2,
+    cyberpunks.Config.GAME_HEIGHT - 300,
+  );
 
   // For collision groups to collide with the world borders.
   game.physics.p2.updateBoundsCollisionGroup();
@@ -51,12 +68,13 @@ function createFn() {
   game.camera.scale.x = cyberpunks.Config.CAMERA_SCALE;
   game.camera.scale.y = cyberpunks.Config.CAMERA_SCALE;
   game.camera.deadzone = new Phaser.Rectangle(
-      cyberpunks.Config.CAMERA_DEADZONE_WIDTH,
-      cyberpunks.Config.CAMERA_DEADZONE_WIDTH, 
-      (cyberpunks.Config.SCREEN_WIDTH
-          - 2 * cyberpunks.Config.CAMERA_DEADZONE_WIDTH),
-      (cyberpunks.Config.SCREEN_HEIGHT
-          - 2 * cyberpunks.Config.CAMERA_DEADZONE_WIDTH));
+    cyberpunks.Config.CAMERA_DEADZONE_WIDTH,
+    cyberpunks.Config.CAMERA_DEADZONE_WIDTH,
+    cyberpunks.Config.SCREEN_WIDTH -
+      2 * cyberpunks.Config.CAMERA_DEADZONE_WIDTH,
+    cyberpunks.Config.SCREEN_HEIGHT -
+      2 * cyberpunks.Config.CAMERA_DEADZONE_WIDTH,
+  );
 
   // Register callback functions for mouse events.
   game.input.onDown.add(click, this);
@@ -100,6 +118,6 @@ function release() {
 function getMouseCoordinates() {
   return [
     game.input.activePointer.worldX / game.camera.scale.x,
-    game.input.activePointer.worldY / game.camera.scale.y
+    game.input.activePointer.worldY / game.camera.scale.y,
   ];
 }

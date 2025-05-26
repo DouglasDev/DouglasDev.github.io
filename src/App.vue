@@ -265,7 +265,7 @@ export default {
             25,
             window.innerWidth / window.innerHeight,
             0.1,
-            1000
+            1000,
           );
           this.camera.position.x = -35;
           this.camera.position.y = 30;
@@ -356,9 +356,9 @@ export default {
                 new THREE.BoxGeometry(
                   1 * Math.random() * 2,
                   10 + Math.random() * 10 - 5,
-                  1 * Math.random() * 2
+                  1 * Math.random() * 2,
                 ),
-                material
+                material,
               );
               obj.position.x =
                 row * offset -

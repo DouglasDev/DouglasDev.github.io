@@ -6,5 +6,5 @@ cyberpunks.LimbState = {
   LOOSE: 'loose',
   HOLDING: 'holding',
   SELF_DRAGGING: 'dragging',
-  OTHER_DRAGGING: 'otherDragging'
+  OTHER_DRAGGING: 'otherDragging',
 };

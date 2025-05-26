@@ -6,17 +6,17 @@ var LINK_DISTANCE = 150;
 var WIDTH = 800;
 var HEIGHT = 800;
 
-function drawGraph (graph, panel) {
-  var d3cola = cola.d3adaptor()
-    .avoidOverlaps(true)
-    .size([WIDTH, HEIGHT]);
+function drawGraph(graph, panel) {
+  var d3cola = cola.d3adaptor().avoidOverlaps(true).size([WIDTH, HEIGHT]);
 
   var svg = d3.select(panel);
 
   d3.selectAll(panel + '> *').remove();
 
   // define arrow markers for graph links
-  svg.append('svg:defs').append('svg:marker')
+  svg
+    .append('svg:defs')
+    .append('svg:marker')
     .attr('id', 'end-arrow')
     .attr('viewBox', '0 -5 10 10')
     .attr('refX', 6)
@@ -38,23 +38,26 @@ function drawGraph (graph, panel) {
     .linkDistance(LINK_DISTANCE)
     .start(10, 15, 20);
 
-  var path = svg.selectAll('.link')
+  var path = svg
+    .selectAll('.link')
     .data(graph.links)
-    .enter().append('svg:path')
+    .enter()
+    .append('svg:path')
     .attr('class', 'link');
 
-  path.append('title')
-    .text(function (d) {
-      var text = '';
-      text += 'Weight: ' + Math.round(d.weight * 1000) / 1000 + '\n';
-      text += 'Source: ' + d.source.id + '\n';
-      text += 'Target: ' + d.target.id;
-      return text;
-    });
+  path.append('title').text(function (d) {
+    var text = '';
+    text += 'Weight: ' + Math.round(d.weight * 1000) / 1000 + '\n';
+    text += 'Source: ' + d.source.id + '\n';
+    text += 'Target: ' + d.target.id;
+    return text;
+  });
 
-  var node = svg.selectAll('.node')
+  var node = svg
+    .selectAll('.node')
     .data(graph.nodes)
-    .enter().append('circle')
+    .enter()
+    .append('circle')
     .attr('class', function (d) {
       return 'node ' + d.name;
     })
@@ -62,20 +65,21 @@ function drawGraph (graph, panel) {
       return d.name === 'GATE' ? GATE_RADIUS : NODE_RADIUS;
     })
 
-  .call(d3cola.drag);
+    .call(d3cola.drag);
 
-  node.append('title')
-    .text(function (d) {
-      var text = '';
-      text += 'Activation: ' + Math.round(d.activation * 1000) / 1000 + '\n';
-      text += 'Bias: ' + Math.round(d.bias * 1000) / 1000 + '\n';
-      text += 'Position: ' + d.id;
-      return text;
-    });
+  node.append('title').text(function (d) {
+    var text = '';
+    text += 'Activation: ' + Math.round(d.activation * 1000) / 1000 + '\n';
+    text += 'Bias: ' + Math.round(d.bias * 1000) / 1000 + '\n';
+    text += 'Position: ' + d.id;
+    return text;
+  });
 
-  var label = svg.selectAll('.label')
+  var label = svg
+    .selectAll('.label')
     .data(graph.nodes)
-    .enter().append('text')
+    .enter()
+    .append('text')
     .attr('class', 'label')
     .text(function (d) {
       return '(' + d.index + ') ' + d.name;
@@ -96,10 +100,10 @@ function drawGraph (graph, panel) {
 
       var sourcePadding = d.source.width / 2;
       var targetPadding = d.target.width / 2 + 2;
-      var sourceX = d.source.x + (sourcePadding * normX);
-      var sourceY = d.source.y + (sourcePadding * normY);
-      var targetX = d.target.x - (targetPadding * normX);
-      var targetY = d.target.y - (targetPadding * normY);
+      var sourceX = d.source.x + sourcePadding * normX;
+      var sourceY = d.source.y + sourcePadding * normY;
+      var targetX = d.target.x - targetPadding * normX;
+      var targetY = d.target.y - targetPadding * normY;
 
       // Defaults for normal edge.
       var drx = 0;
@@ -117,7 +121,26 @@ function drawGraph (graph, panel) {
         targetX = targetX + 1;
         targetY = targetY + 1;
       }
-      return 'M' + sourceX + ',' + sourceY + 'A' + drx + ',' + dry + ' ' + xRotation + ',' + largeArc + ',' + sweep + ' ' + targetX + ',' + targetY;
+      return (
+        'M' +
+        sourceX +
+        ',' +
+        sourceY +
+        'A' +
+        drx +
+        ',' +
+        dry +
+        ' ' +
+        xRotation +
+        ',' +
+        largeArc +
+        ',' +
+        sweep +
+        ' ' +
+        targetX +
+        ',' +
+        targetY
+      );
     });
 
     node

@@ -1,12 +1,5 @@
 /** The specification for a single hold in the course. */
-cyberpunks.HoldSpec = function(
-    shape, 
-    x, 
-    y, 
-    width, 
-    height, 
-    color, 
-    spriteName) {
+cyberpunks.HoldSpec = function (shape, x, y, width, height, color, spriteName) {
   this.shape = shape;
   this.x = x;
   this.y = y;
@@ -19,5 +12,5 @@ cyberpunks.HoldSpec = function(
 cyberpunks.HoldSpec.Shape = {
   RECTANGLE: 'rectangle',
   CIRCLE: 'circle',
-  SPRITE: 'sprite'
+  SPRITE: 'sprite',
 };

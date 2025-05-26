@@ -6,5 +6,5 @@ cyberpunks.DraggableLimb = {
   LEFT_HAND: 'lh',
   RIGHT_HAND: 'rh',
   LEFT_FOOT: 'lf',
-  RIGHT_FOOT: 'rf'
+  RIGHT_FOOT: 'rf',
 };
