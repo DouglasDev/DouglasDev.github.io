@@ -18,6 +18,8 @@ npm run serve
 npm run build
 ```
 
+auto deploys gh-page after pushing to master via github action
+
 ### Run your tests
 
 ```

@@ -3,7 +3,6 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-push": "vue-cli-service build && git add . ; git commit -m 'build and deploy' ; git subtree push --prefix dist origin gh-pages",
     "format": "prettier --write ."
   },
   "dependencies": {
