@@ -687,7 +687,6 @@ canvas {
   bottom: 0;
   height: 5px;
   background: #6fbef3;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
@@ -697,7 +696,6 @@ canvas {
   color: #444;
   text-decoration: none;
   padding: 0;
-  -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
@@ -922,7 +920,6 @@ html {
 .icon-box > div {
   width: 10rem;
   height: 11rem;
-  padding: 1rem;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -934,7 +931,6 @@ html {
 .icon-box > div:hover .icon-tech {
   width: 120px;
   height: 120px;
-  padding-bottom: 6px;
 }
 
 .icon-box > div:hover {
@@ -942,8 +938,6 @@ html {
 }
 
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
