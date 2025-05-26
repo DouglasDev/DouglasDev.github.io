@@ -4,153 +4,247 @@
       <nav class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
         <!-- <a class="pure-menu-heading" href="">Your Site</a> -->
         <ul class="pure-menu-list">
-          <li class="pure-menu-item active"><a href="#app" class="pure-menu-link">Home</a></li>
-          <li class="pure-menu-item"><a href="#portfolio" class="pure-menu-link">Portfolio</a></li>
-          <li class="pure-menu-item"><a href="#skills" class="pure-menu-link">Skills</a></li>
-          <li class="pure-menu-item"><a href="#about" class="pure-menu-link">About</a></li>
+          <li class="pure-menu-item active">
+            <a href="#app" class="pure-menu-link">Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a href="#portfolio" class="pure-menu-link">Portfolio</a>
+          </li>
+          <li class="pure-menu-item">
+            <a href="#skills" class="pure-menu-link">Skills</a>
+          </li>
+          <li class="pure-menu-item">
+            <a href="#about" class="pure-menu-link">About</a>
+          </li>
         </ul>
         <div class="lavalamp"></div>
       </nav>
     </header>
-      <div class="splash-container">
-<!--         <renderer :size="{ w: 600, h: 400 }" class="threeRoot">
+    <div class="splash-container">
+      <!--         <renderer :size="{ w: 600, h: 400 }" class="threeRoot">
           <scene>
             <camera :position="{ z: 15 }"></camera>
             <mesh :obj="mesh" :position="{ y: -200 }"></mesh>
             <animation :fn="animate" :speed="3"></animation>
           </scene>
         </renderer> -->
-        <div class="splash">
-          <h1 class="splash-head">Douglas Lerner</h1>
-          <p class="splash-subhead">
-            NYC Based Web Developer
-          </p>
-          <p>
-            <a target="_blank" href="https://docs.google.com/document/d/1c1_kVXluuXLo7WPebGXqj607Ez_LvSNCj8MCMf0HUxU/edit?usp=sharing" class="pure-button pure-button-primary top-button">Resume</a>
-            <a target="_blank" href="mailto:douglasdev8888@gmail.com" class="pure-button pure-button-primary top-button">Email</a>
-            <a target="_blank" href="https://github.com/DouglasDev" class="pure-button pure-button-primary top-button">Github</a>
-            <a target="_blank" href="https://www.linkedin.com/in/douglas-lerner-66590467/" class="pure-button pure-button-primary top-button">Linkedin</a>
-          </p>
+      <div class="splash">
+        <h1 class="splash-head">Douglas Lerner</h1>
+        <p class="splash-subhead">NYC Based Web Developer</p>
+        <p>
+          <a
+            target="_blank"
+            href="https://docs.google.com/document/d/1c1_kVXluuXLo7WPebGXqj607Ez_LvSNCj8MCMf0HUxU/edit?usp=sharing"
+            class="pure-button pure-button-primary top-button"
+            >Resume</a
+          >
+          <a
+            target="_blank"
+            href="mailto:douglasdev8888@gmail.com"
+            class="pure-button pure-button-primary top-button"
+            >Email</a
+          >
+          <a
+            target="_blank"
+            href="https://github.com/DouglasDev"
+            class="pure-button pure-button-primary top-button"
+            >Github</a
+          >
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/douglas-lerner-66590467/"
+            class="pure-button pure-button-primary top-button"
+            >Linkedin</a
+          >
+        </p>
+      </div>
+    </div>
+    <main class="content-wrapper">
+      <div
+        class="animatedParent animateOnce"
+        data-sequence="500"
+        style="background: #ffffff"
+        id="portfolio"
+      >
+        <h2 class="content-head is-center">Portfolio</h2>
+        <div class="centered-buttons animated growIn" data-id="1">
+          <button
+            class="pure-button"
+            v-for="type in filterPortfolio"
+            @click="selectedWorks = type"
+            :style="
+              selectedWorks == type
+                ? { background: '#2d3e50', color: 'white' }
+                : {}
+            "
+          >
+            {{ type }}
+          </button>
+        </div>
+        <transition-group
+          name="fade"
+          tag="div"
+          class="centered-layout portfolio-box animated growIn"
+          data-id="2"
+        >
+          <div
+            class="content l-box-lrg pure-g project-img-box"
+            v-for="(work, i) in works"
+            v-if="work.type.includes(selectedWorks) || selectedWorks == 'All'"
+            :key="work.title"
+          >
+            <div class="flip-card" @click="showModal(work)">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img
+                    class="screenshot pure-img-responsive"
+                    :src="work.src"
+                    :alt="work.title"
+                  />
+                </div>
+                <div class="flip-card-back content-head" style="margin: 0">
+                  <div>
+                    <h2>{{ work.title }}</h2>
+                    <div class="skill-list">
+                      <div class="skill-list-item" v-for="tech in work.tech">
+                        {{ tech }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </transition-group>
+      </div>
+
+      <div class="content" id="skills">
+        <h2 class="content-head is-center">Technologies and Skills</h2>
+        <div class="pure-g">
+          <div
+            class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4 animatedParent"
+            data-sequence="200"
+            v-for="skillType in skills"
+          >
+            <h3 class="content-subhead">
+              <i :class="skillType.titleIcon"></i>{{ skillType.title }}
+            </h3>
+            <div class="icon-box">
+              <div
+                :class="skillType.animation"
+                v-for="skill in skillType.content"
+                :data-id="skill['data-id']"
+              >
+                <img
+                  :src="'icons/' + skill.src"
+                  :alt="skill.name"
+                  class="icon-tech"
+                  :style="skill.style ? skill.style : null"
+                />
+                <div class="icon-tech-name">{{ skill.name }}</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <main class="content-wrapper">
-        <div class="animatedParent animateOnce" data-sequence='500' style="background:#FFFFFF;" id="portfolio">
-          <h2 class="content-head is-center">Portfolio</h2>
-          <div class="centered-buttons animated growIn" data-id='1'>
-            <button class="pure-button" v-for="type in filterPortfolio" @click="selectedWorks=type" :style="selectedWorks==type?{background:'#2d3e50',color:'white'}:{}">
-              {{type}}
-            </button>
+      <div class="ribbon" id="about">
+        <div class="contact-form">
+          <div class="l-box-lrg pure-u-1 pure-u-md" id="about-info">
+            <h2 class="content-head-ribbon is-left">About Me</h2>
+            <p>
+              I create web apps that connect people, educate, and entertain.
+              I've worked on variety of projects for multiple start-ups, small
+              businesses, a publishing house, and a record company.
+            </p>
+            <p>
+              Last year, I completed a batch at the
+              <a href="http://www.recurse.com">Recurse Center</a>, which is a 3
+              month full-time self-directed programming retreat. While there, I
+              immersed myself in projects that involved browser extension
+              development, game development, machine learning, natural language
+              processing, genetic algorithms, and computer generated music.
+            </p>
+            <p>
+              In addition to programming, I have experience working as an ESL
+              teacher and Chinese translator, as well as a background in
+              classical music and biology, and I often incorporate this
+              expertise into my projects.
+            </p>
           </div>
-          <transition-group name="fade" tag="div" class="centered-layout portfolio-box animated growIn" data-id='2'>
-            <div class="content l-box-lrg pure-g project-img-box" v-for="(work,i) in works" v-if="work.type.includes(selectedWorks)||selectedWorks=='All'" :key="work.title">
-              <div class="flip-card" @click="showModal(work)">
-                <div class="flip-card-inner">
-                  <div class="flip-card-front">
-                    <img class="screenshot pure-img-responsive " :src="work.src" :alt="work.title">
-                  </div>
-                  <div class="flip-card-back content-head" style="margin:0">
-                    <p>
-                      <h2>{{work.title}}</h2>
-                      <div class="skill-list">
-                        <div class="skill-list-item" v-for="tech in work.tech">{{tech}}</div>
-                      </div>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </transition-group>
         </div>
-
-        <div class="content" id="skills">
-          <h2 class="content-head is-center">Technologies and Skills</h2>
-          <div class="pure-g ">
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4 animatedParent" data-sequence='200' v-for="skillType in skills">
-              <h3 class="content-subhead">
-                <i :class="skillType.titleIcon"></i>{{skillType.title}}
-              </h3>
-              <div class="icon-box">
-                <div :class='skillType.animation' v-for="skill in skillType.content" :data-id='skill["data-id"]'>
-                  <img :src="'icons/'+skill.src" :alt="skill.name" class="icon-tech" :style="skill.style?skill.style:null">
-                  <div class="icon-tech-name">{{skill.name}}</div>
-                </div>
-              </div>
+        <div class="stars">
+          <div class="clouds">
+            <div class="animatedParent" style="opacity: 0.8">
+              <img
+                src="nyc.png"
+                alt="nyc"
+                style="
+                  width: 100%;
+                  position: relative;
+                  z-index: 4;
+                  margin-bottom: 0rem;
+                "
+                class="animated fadeInUp"
+              />
             </div>
           </div>
         </div>
-        <div class="ribbon" id="about">
-          <div class="contact-form">
-            <div class="l-box-lrg pure-u-1 pure-u-md" id="about-info">
-              <h2 class="content-head-ribbon is-left">About Me</h2>
-              <p>
-                I create web apps that connect people, educate, and entertain. I've worked on variety of projects for multiple start-ups, small businesses, a publishing house, and a record company.
-              </p>
-              <p>
-                Last year, I completed a batch at the <a href="http://www.recurse.com">Recurse Center</a>, which is a 3 month full-time self-directed programming retreat. While there, I immersed myself in projects that involved browser extension development, game development, machine learning, natural language processing, genetic algorithms, and computer generated music.
-              </p>
-              <p>
-                In addition to programming, I have experience working as an ESL teacher and Chinese translator, as well as a background in classical music and biology, and I often incorporate this expertise into my projects.
-              </p>
-            </div>
-          </div>
-          <div class="stars">
-            <div class="clouds">
-              <div class="animatedParent" style="opacity: .8;">
-                <img src="nyc.png" alt="nyc" style="width:100%;position: relative;z-index: 4;    margin-bottom: 0rem;" class='animated fadeInUp'>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-      <sweet-modal ref="modal">
-        <h3 class="project-title">{{selectedWork.title}}</h3>
-        <carousel :per-page='1' :navigationEnabled="true" :paginationSize="12">
-          <slide class="slide slide-text" key='a' ref='a'>
-            {{selectedWork.description}}
-          </slide>
-          <slide class="slide" key='b' ref='b'>
-            <img :src="selectedWork.src" :alt="selectedWork.title" class="pure-img-responsive">
-          </slide>
-        </carousel>
-        <div>
-          <a target="_blank" :href="link.link" class='pure-button' v-for="link in selectedWork.links">{{link.type}}</a>
-        </div>
-      </sweet-modal>
+      </div>
+    </main>
+    <sweet-modal ref="modal">
+      <h3 class="project-title">{{ selectedWork.title }}</h3>
+      <carousel :per-page="1" :navigationEnabled="true" :paginationSize="12">
+        <slide class="slide slide-text" key="a" ref="a">
+          {{ selectedWork.description }}
+        </slide>
+        <slide class="slide" key="b" ref="b">
+          <img
+            :src="selectedWork.src"
+            :alt="selectedWork.title"
+            class="pure-img-responsive"
+          />
+        </slide>
+      </carousel>
+      <div>
+        <a
+          target="_blank"
+          :href="link.link"
+          class="pure-button"
+          v-for="link in selectedWork.links"
+          >{{ link.type }}</a
+        >
+      </div>
+    </sweet-modal>
   </div>
 </template>
 <script>
-import MenuSpy from 'menuspy'
-
-
+import MenuSpy from 'menuspy';
+import * as THREE from 'three';
 
 export default {
   name: 'app',
   components: {},
   mounted() {
-    this.setUpLavalamp()
-    this.setUpThree()
+    this.setUpLavalamp();
+    this.setUpThree();
   },
   methods: {
-    setUpLavalamp(){
+    setUpLavalamp() {
       function positionLavalamp(activeElm) {
         lavalampElm.style.width = activeElm.elm.offsetWidth + 'px';
         lavalampElm.style.left = activeElm.elm.getBoundingClientRect().x + 'px';
-      };
+      }
       const lavalampElm = document.querySelector('.lavalamp');
       const elm = document.querySelector('#main-header');
       const ms = new MenuSpy(elm, {
-        callback: positionLavalamp
+        callback: positionLavalamp,
       });
-      positionLavalamp({ elm: elm.querySelector('li.active') });    
+      positionLavalamp({ elm: elm.querySelector('li.active') });
     },
-    setUpThree(){
+    setUpThree() {
       class App {
         constructor() {
-          this.randFrom = [
-            'first',
-            'last',
-            'center'
-          ];
+          this.randFrom = ['first', 'last', 'center'];
           this.easing = [
             'linear',
             'easeInOutQuad',
@@ -163,34 +257,38 @@ export default {
             'easeInOutBack',
             'cubicBezier(.5, .05, .1, .3)',
             'spring(1, 80, 10, 0)',
-            'steps(10)'
+            'steps(10)',
           ];
         }
         init() {
-          this.camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 0.1, 1000);
+          this.camera = new THREE.PerspectiveCamera(
+            25,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            1000
+          );
           this.camera.position.x = -35;
           this.camera.position.y = 30;
           this.camera.position.z = -35;
 
-          const point = new THREE.Vector3(5,0,5);
-          this.camera.lookAt( point );
+          const point = new THREE.Vector3(5, 0, 5);
+          this.camera.lookAt(point);
 
           this.scene = new THREE.Scene();
-          this.scene.background = new THREE.Color( 0x1f8dd6 );
+          this.scene.background = new THREE.Color(0x1f8dd6);
 
-          this.resizeListener = e => this.onResize(e);
+          this.resizeListener = (e) => this.onResize(e);
           window.addEventListener('resize', this.resizeListener, false);
 
           this.createBoxes();
 
           this.renderer = new THREE.WebGLRenderer({
-            antialias: true
+            antialias: true,
           });
 
           this.renderer.setPixelRatio(window.devicePixelRatio);
           this.renderer.setSize(window.innerWidth, window.innerHeight);
 
-          
           document.body.appendChild(this.renderer.domElement);
           this.beginAnimationLoop();
           this.animate();
@@ -225,11 +323,11 @@ export default {
           let material = new THREE.ShaderMaterial({
             uniforms: {
               thickness: {
-                value: 1.0
-              }
+                value: 1.0,
+              },
             },
             vertexShader,
-            fragmentShader
+            fragmentShader,
           });
           material.extensions.derivatives = true;
 
@@ -240,22 +338,37 @@ export default {
           this.nCols = 25;
           this.staggerArray = [];
 
-          let newColumnBlock=0,avenue=0
+          let newColumnBlock = 0,
+            avenue = 0;
 
           for (var column = 0; column < this.nCols; column++) {
-            newColumnBlock=(newColumnBlock+1)%4
-            if (newColumnBlock==3)avenue+=offset*2
+            newColumnBlock = (newColumnBlock + 1) % 4;
+            if (newColumnBlock == 3) avenue += offset * 2;
 
-              let newRowBlock=0,street=0
+            let newRowBlock = 0,
+              street = 0;
             for (var row = 0; row < this.nRows; row++) {
-              newRowBlock=(newRowBlock+1)%4
-              if (newRowBlock==3)street+=offset*2
+              newRowBlock = (newRowBlock + 1) % 4;
+              if (newRowBlock == 3) street += offset * 2;
 
               // let obj = cube.clone();
-            let obj = new THREE.Mesh(new THREE.BoxGeometry(1*Math.random()*2, 10+Math.random()*10-5, 1*Math.random()*2), material);
-              obj.position.x = (row * offset) - ((this.nRows * 0.5) + (this.geometry.parameters.width * 0.5))+street;
+              let obj = new THREE.Mesh(
+                new THREE.BoxGeometry(
+                  1 * Math.random() * 2,
+                  10 + Math.random() * 10 - 5,
+                  1 * Math.random() * 2
+                ),
+                material
+              );
+              obj.position.x =
+                row * offset -
+                (this.nRows * 0.5 + this.geometry.parameters.width * 0.5) +
+                street;
               obj.position.y = -(this.geometry.parameters.height * 0.5);
-              obj.position.z = (column * offset) - ((this.nCols * 0.5) + (this.geometry.parameters.width * 0.5))+avenue;
+              obj.position.z =
+                column * offset -
+                (this.nCols * 0.5 + this.geometry.parameters.width * 0.5) +
+                avenue;
               this.staggerArray.push(obj.position);
               this.scene.add(obj);
             }
@@ -263,28 +376,34 @@ export default {
         }
         beginAnimationLoop() {
           // random from array
-          let randFrom = this.randFrom[Math.floor(Math.random() * this.randFrom.length)];
-          let easingString = this.easing[Math.floor(Math.random() * this.easing.length)];
+          let randFrom =
+            this.randFrom[Math.floor(Math.random() * this.randFrom.length)];
+          let easingString =
+            this.easing[Math.floor(Math.random() * this.easing.length)];
 
           anime({
             targets: this.staggerArray,
             y: [
-              { value: (this.geometry.parameters.height * 0.1), duration: 500 },
-              { value: -(this.geometry.parameters.height * 0.1), duration: 2000 },
+              { value: this.geometry.parameters.height * 0.1, duration: 500 },
+              {
+                value: -(this.geometry.parameters.height * 0.1),
+                duration: 2000,
+              },
             ],
-            delay: anime.stagger(400, { grid: [this.nRows, this.nCols], from: randFrom }),
+            delay: anime.stagger(400, {
+              grid: [this.nRows, this.nCols],
+              from: randFrom,
+            }),
             easing: easingString,
-            complete: (anim) => this.beginAnimationLoop()
+            complete: (anim) => this.beginAnimationLoop(),
           });
-
         }
         animate() {
           requestAnimationFrame(() => this.animate());
           this.update();
           this.render();
         }
-        update() {
-        }
+        update() {}
         render() {
           this.renderer.render(this.scene, this.camera);
         }
@@ -297,29 +416,43 @@ export default {
       }
 
       let app = new App();
-      app.init();      
+      app.init();
     },
     showModal(work) {
-      this.selectedWork = work
-      this.$refs.modal.open()
-    }
+      this.selectedWork = work;
+      this.$refs.modal.open();
+    },
   },
   data() {
     return {
-      filterPortfolio: ['All', 'Front-End', 'Full-Stack', 'Educational', 'Browser Extensions', 'Games', 'Machine Learning'],
+      filterPortfolio: [
+        'All',
+        'Front-End',
+        'Full-Stack',
+        'Educational',
+        'Browser Extensions',
+        'Games',
+        'Machine Learning',
+      ],
       selectedWorks: 'All',
       selectedWork: {},
-      works: [{
-          src: "projects/eComments.png",
+      works: [
+        {
+          src: 'projects/eComments.png',
           title: 'e-Comments',
           type: ['Work', 'Educational', 'Front-End', 'Browser Extensions'],
           tech: ['VueJS', 'Vuex', 'Web Speech API', 'Google Drive API'],
           description: `With the e-Comments Chrome Extension, teachers and workplace supervisors can insert hundreds of customizable Common Core-aligned comments, which identify, explain, and show  how to revise writing issues, with just one click from the e-Comments menu. Comments don’t simply flag errors or suggest revisions; these comprehensive comments help students learn. Teachers can add their own comments to the menu, including audio, video, and speech-to-text. Includes separate comment banks for grades 3-6, 6-9, 9-12, and College/Workplace.`,
           details: ``,
-          links: [{ type: 'Chrome Web Store', link: 'https://chrome.google.com/webstore/detail/e-comments/dccccbckfnndplihkaeiekggmeicbhgj/' }]
+          links: [
+            {
+              type: 'Chrome Web Store',
+              link: 'https://chrome.google.com/webstore/detail/e-comments/dccccbckfnndplihkaeiekggmeicbhgj/',
+            },
+          ],
         },
         {
-          src: "projects/kittieFight.png",
+          src: 'projects/kittieFight.png',
           title: 'KittieFIGHT',
           type: ['Work', 'Games', 'Front-End'],
           tech: ['React', 'Redux', 'Phaser 3', 'Spine Animations', 'Web3.js'],
@@ -327,141 +460,198 @@ export default {
        
           The kittieFIGHT Dapp also solves the problem of oversupply of Cryptokitties via a kittie-sink called kittieHELL. The sink effect from fights also serves to create demand for new kitties on the Cryptokitties platform. Winners of fights on the kittieFIGHT platform can trade winning tokens to buy more Cryptokitties collectibles.`,
           details: ``,
-          links: [{ type: 'Official Website', link: 'https://www.kittiefight.io/' }]
+          links: [
+            { type: 'Official Website', link: 'https://www.kittiefight.io/' },
+          ],
         },
         {
-          src: "projects/harpsichord-hero.png",
+          src: 'projects/harpsichord-hero.png',
           title: 'Harpsichord Hero',
           type: ['Projects', 'Music', 'Front-End'],
           tech: ['HTML canvas', 'Teoria.js', 'Soundfont-Player', 'MIDI.js'],
           description: `A digital musical instrument that allows people with no musical background to improvise harpischord music in the baroque style. The instrument has a built-in knowledge of harmony and musical style, which allows users to effortlessly improvise complex melodies and chord progressions.`,
           details: ``,
-          links: [{ type: 'Live Demo', link: 'https://douglasdev.github.io/Harpsichord-Hero' },
-            { type: 'Github', link: 'https://github.com/DouglasDev/Harpsichord-Hero' }
-          ]
+          links: [
+            {
+              type: 'Live Demo',
+              link: 'https://douglasdev.github.io/Harpsichord-Hero',
+            },
+            {
+              type: 'Github',
+              link: 'https://github.com/DouglasDev/Harpsichord-Hero',
+            },
+          ],
         },
         {
-          src: "projects/charts DNP/Screenshot Charts.png",
+          src: 'projects/charts DNP/Screenshot Charts.png',
           title: 'Sales Charts',
           type: ['Work', 'Front-End'],
           tech: ['JavaScript', 'Charts.JS'],
           description: `Interactive dashboard for sales reps, that reads data from Laravel backend and generates beautiful responsive animated sales charts.`,
           details: ``,
-          links: [{ type: 'Live Demo', link: './projects/charts DNP/index.html' }]
+          links: [
+            { type: 'Live Demo', link: './projects/charts DNP/index.html' },
+          ],
         },
         {
-          src: "projects/Cocktail Party Neuro Evolution/screenshot 1.png",
+          src: 'projects/Cocktail Party Neuro Evolution/screenshot 1.png',
           title: 'NeuroEvolution Cocktail Party',
           type: ['Projects', 'Machine Learning', 'Front-End'],
           tech: ['Vanilla JS', 'Neatapic.js'],
           description: `A simulation of human social interactions, which evolves social agents that can adapt to one another's behaviors. Uses a JavaScript implementation of the NEAT (Neuro Evolution through Augmented Topology) genetic algorithm, which evolves neural networks through the process of Darwinian evolution. `,
           details: ``,
-          links: [{ type: 'Live Demo', link: './projects/Cocktail Party Neuro Evolution/index.html' },
-            { type: 'Github', link: 'https://github.com/DouglasDev/Neuro-Evolution-Cocktail-Party' }
-          ]
+          links: [
+            {
+              type: 'Live Demo',
+              link: './projects/Cocktail Party Neuro Evolution/index.html',
+            },
+            {
+              type: 'Github',
+              link: 'https://github.com/DouglasDev/Neuro-Evolution-Cocktail-Party',
+            },
+          ],
         },
         {
-          src: "projects/leetcode pairing screenshot.png",
+          src: 'projects/leetcode pairing screenshot.png',
           title: 'LeetCode Pairing',
           type: ['Projects', 'Full-Stack', 'Browser Extensions'],
-          tech: ['React', 'Node Express', 'Oauth2', 'Webpack', 'WebRTC', 'Socket.io', 'Codemirror API', 'Chrome API'],
+          tech: [
+            'React',
+            'Node Express',
+            'Oauth2',
+            'Webpack',
+            'WebRTC',
+            'Socket.io',
+            'Codemirror API',
+            'Chrome API',
+          ],
           description: `A Chrome extension which enables coders to pair program over the internet and solve LeetCode.com algorithm coding challenges together. Users can type into a shared text editor and video chat in real time, all in the browser.`,
           details: ``,
-          links: [{ type: 'Chrome Web Store', link: "https://chrome.google.com/webstore/detail/leetcode-pairing/jeonpfbokpeagbojffcijgpcpldgebfb" },
-            { type: 'Github Repo', link: "https://github.com/MerkleBros/leetcode-pairing-chrome-extension" },
-          ]
+          links: [
+            {
+              type: 'Chrome Web Store',
+              link: 'https://chrome.google.com/webstore/detail/leetcode-pairing/jeonpfbokpeagbojffcijgpcpldgebfb',
+            },
+            {
+              type: 'Github Repo',
+              link: 'https://github.com/MerkleBros/leetcode-pairing-chrome-extension',
+            },
+          ],
         },
         {
-          src: "projects/cyberpunks client/Screenshot.png",
+          src: 'projects/cyberpunks client/Screenshot.png',
           title: 'Cyberpunks Rock Climbing',
           type: ['Projects', 'Full-Stack', 'Games'],
           tech: ['Phaser', 'P2 Physics engine', 'Node Express', 'Socket.io'],
           description: `A multiplayer, cooperative, physics-based rock climbing game. The players must scale the cliff without putting too much weight on any one limb, or they will fall off. Up to four players can join a game, with each player controlling a different limb.`,
           details: ``,
-          links: [{ type: 'Live Demo', link: "./projects/cyberpunks client/index.html" },
-            { type: 'Github Repo', link: "https://github.com/jven/cyberpunks" },
-          ]
+          links: [
+            {
+              type: 'Live Demo',
+              link: './projects/cyberpunks client/index.html',
+            },
+            { type: 'Github Repo', link: 'https://github.com/jven/cyberpunks' },
+          ],
         },
         {
-          src: "projects/evolutionscript.png",
+          src: 'projects/evolutionscript.png',
           title: 'EvolutionScript',
           type: ['Projects', 'Machine Learning', 'Front-End'],
           tech: ['Vanilla JavaScript'],
           description: `Genetic programming in the browser. The user enters a series of integers representing the desired output of a program, and the app generates hundreds of random abstract syntax trees which are converted into JavaScript programs, evaluated and sorted based on performance. The fittest ASTs are allowed to reproduce, mutate, and evolve, producing programs who's output approximates the user's input.`,
           details: ``,
-          links: [{ type: 'Live Demo', link: "https://douglasdev.github.io/General-AI" },
-            { type: 'Github Repo', link: "https://github.com/DouglasDev/General-AI" },
-          ]
+          links: [
+            {
+              type: 'Live Demo',
+              link: 'https://douglasdev.github.io/General-AI',
+            },
+            {
+              type: 'Github Repo',
+              link: 'https://github.com/DouglasDev/General-AI',
+            },
+          ],
         },
         {
-          src: "projects/shadow-boxing.png",
+          src: 'projects/shadow-boxing.png',
           title: 'Mandarin Shadow Boxing',
           type: ['Projects', 'Educational', 'Front-End'],
           tech: ['jQuery', 'Howler.js'],
           description: `A tool for learning spoken Mandarin Chinese which breaks down complex sentences into their simplest components allowing for rapid language acquisition. Based off the "shadowing" technique of language professor Alexander Arguelles, in which students learn phrases in a foreign language through imitation of recordings of native speakers.`,
           details: ``,
-          links: [{ type: 'Live Demo', link: "https://douglasdev.github.io/mandarin-shadow-boxing" },
-            { type: 'Github Repo', link: "https://github.com/DouglasDev/mandarin-shadow-boxing" },
-          ]
+          links: [
+            {
+              type: 'Live Demo',
+              link: 'https://douglasdev.github.io/mandarin-shadow-boxing',
+            },
+            {
+              type: 'Github Repo',
+              link: 'https://github.com/DouglasDev/mandarin-shadow-boxing',
+            },
+          ],
         },
       ],
-      skills: [{
+      skills: [
+        {
           title: 'Languages',
-          titleIcon: "fa fa-language",
+          titleIcon: 'fa fa-language',
           animation: 'animated fadeInLeft',
           content: [
-            { 'data-id': 1, src: 'es6.png', name: 'JavaScript ES6+', },
-            { 'data-id': 1, src: 'html5.png', name: 'HTML5', },
-            { 'data-id': 2, src: 'css3.png', name: 'CSS3', },
-            { 'data-id': 2, src: 'scss.png', name: 'SCSS', },
-            { 'data-id': 3, src: 'python.ico', name: 'Python', },
-            { 'data-id': 3, src: 'elm.png', name: 'Elm', },
-          ]
+            { 'data-id': 1, src: 'es6.png', name: 'JavaScript ES6+' },
+            { 'data-id': 1, src: 'html5.png', name: 'HTML5' },
+            { 'data-id': 2, src: 'css3.png', name: 'CSS3' },
+            { 'data-id': 2, src: 'scss.png', name: 'SCSS' },
+            { 'data-id': 3, src: 'python.ico', name: 'Python' },
+            { 'data-id': 3, src: 'elm.png', name: 'Elm' },
+          ],
         },
         {
           title: 'Frameworks',
-          titleIcon: "fa fa-crop",
+          titleIcon: 'fa fa-crop',
           animation: 'animated fadeInUp',
           content: [
-            { 'data-id': 1, src: 'react.png', name: 'React', },
-            { 'data-id': 1, src: 'redux.png', name: 'Redux', },
-            { 'data-id': 2, src: 'vue.png', name: 'Vue', },
-            { 'data-id': 2, src: 'node.png', name: 'Node Express', },
-            { 'data-id': 3, src: 'jQuery.png', name: 'jQuery', },
-          ]
+            { 'data-id': 1, src: 'react.png', name: 'React' },
+            { 'data-id': 1, src: 'redux.png', name: 'Redux' },
+            { 'data-id': 2, src: 'vue.png', name: 'Vue' },
+            { 'data-id': 2, src: 'node.png', name: 'Node Express' },
+            { 'data-id': 3, src: 'jQuery.png', name: 'jQuery' },
+          ],
         },
         {
           title: 'Libraries',
-          titleIcon: "fa fa-cubes",
+          titleIcon: 'fa fa-cubes',
           animation: 'animated fadeInUp',
           content: [
-            { 'data-id': 1, src: 'tone-js.png', name: 'Tone JS', },
-            { 'data-id': 1, src: 'webRTC.png', name: 'WebRTC', },
-            { 'data-id': 2, src: 'phaser.png', name: 'Phaser', },
-            { 'data-id': 2, src: 'cordova.png', name: 'Cordova', },
-            { 'data-id': 3, src: 'chrome.png', name: 'Chrome', },
-          ]
+            { 'data-id': 1, src: 'tone-js.png', name: 'Tone JS' },
+            { 'data-id': 1, src: 'webRTC.png', name: 'WebRTC' },
+            { 'data-id': 2, src: 'phaser.png', name: 'Phaser' },
+            { 'data-id': 2, src: 'cordova.png', name: 'Cordova' },
+            { 'data-id': 3, src: 'chrome.png', name: 'Chrome' },
+          ],
         },
         {
           title: 'Tools',
-          titleIcon: "fa fa-terminal",
+          titleIcon: 'fa fa-terminal',
           animation: 'animated fadeInRight',
           content: [
-            { 'data-id': 1, src: 'git.png', name: 'Git', },
-            { 'data-id': 2, src: 'webpack.svg', name: 'Webpack', style: { 'margin-right': '-1.2rem' } },
-            { 'data-id': 3, src: 'gulp.png', name: 'Gulp', },
-            { 'data-id': 3, src: 'jest.png', name: 'Jest', },
-          ]
+            { 'data-id': 1, src: 'git.png', name: 'Git' },
+            {
+              'data-id': 2,
+              src: 'webpack.svg',
+              name: 'Webpack',
+              style: { 'margin-right': '-1.2rem' },
+            },
+            { 'data-id': 3, src: 'gulp.png', name: 'Gulp' },
+            { 'data-id': 3, src: 'jest.png', name: 'Jest' },
+          ],
         },
-      ]
-    }
-  }
-}
-
+      ],
+    };
+  },
+};
 </script>
 <style>
-canvas{
-/*  width: 100vw;
+canvas {
+  /*  width: 100vw;
   height: 100vh;*/
   position: fixed !important;
 }
@@ -471,7 +661,7 @@ canvas{
   left: 0;
   width: 100%;
   height: 60px;
-  background: #FFF;
+  background: #fff;
   /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
   text-align: center;
   z-index: 4;
@@ -482,7 +672,6 @@ canvas{
   display: inline-block;
   vertical-align: top;
   zoom: 1;
-  *display: inline;
 }
 
 .lavalamp-menu li {
@@ -497,9 +686,9 @@ canvas{
   position: absolute;
   bottom: 0;
   height: 5px;
-  background: #6FBEF3;
-  -webkit-transition: .5s;
-  transition: .5s;
+  background: #6fbef3;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .lavalamp-menu a {
@@ -518,7 +707,7 @@ canvas{
 
 .fixed-header .active a {
   background: #222;
-  color: #FFF;
+  color: #fff;
 }
 
 main {
@@ -584,10 +773,10 @@ main {
 
 .skill-list-item {
   background: rgba(0, 0, 255, 0.6);
-  padding: 0.2rem .5rem .1rem;
+  padding: 0.2rem 0.5rem 0.1rem;
   color: white;
   border-radius: 11px;
-  margin: .1rem;
+  margin: 0.1rem;
   font-size: small;
 }
 
@@ -627,11 +816,11 @@ main {
 }
 
 .fade-move {
-  transition: all ease-in-out 400ms
+  transition: all ease-in-out 400ms;
 }
 
 .fade-enter-active {
-  transition: all 400ms ease-out
+  transition: all 400ms ease-out;
 }
 
 .fade-leave-active {
@@ -642,13 +831,12 @@ main {
 
 .fade-enter,
 .fade-leave-to {
-  opacity: 0
+  opacity: 0;
 }
 
 .fade-enter {
-  transform: scale(0.1)
+  transform: scale(0.1);
 }
-
 
 html {
   scroll-behavior: smooth;
@@ -663,11 +851,11 @@ html {
 }
 
 .centered-buttons button {
-  margin: .15rem;
+  margin: 0.15rem;
 }
 
 .pure-button {
-  margin: .15rem;
+  margin: 0.15rem;
 }
 
 .centered-layout {
@@ -680,11 +868,11 @@ html {
   max-width: 25rem;
 }
 
-.project-img-box img, .project-img-box .flip-card-back {
+.project-img-box img,
+.project-img-box .flip-card-back {
   /*border-radius: 10px;*/
   box-shadow: 0px 1px 4px rgba(0, 0, 255, 0.4);
 }
-
 
 .portfolio-box {
   display: flex;
@@ -707,8 +895,11 @@ html {
 
 #about {
   background: rgb(45, 62, 80);
-  background: linear-gradient(180deg, rgba(45, 62, 80, 1) 0%, rgba(14, 23, 32, 1) 80%);
-
+  background: linear-gradient(
+    180deg,
+    rgba(45, 62, 80, 1) 0%,
+    rgba(14, 23, 32, 1) 80%
+  );
 }
 
 #about a {
@@ -718,7 +909,7 @@ html {
 .icon-tech {
   width: 100px;
   height: 100px;
-  transition: all linear .3s;
+  transition: all linear 0.3s;
 }
 
 .icon-box {
@@ -728,7 +919,7 @@ html {
   justify-content: center;
 }
 
-.icon-box>div {
+.icon-box > div {
   width: 10rem;
   height: 11rem;
   padding: 1rem;
@@ -737,16 +928,16 @@ html {
   align-items: center;
   justify-content: space-evenly;
   text-align: center;
-  transition: all linear .3s;
+  transition: all linear 0.3s;
 }
 
-.icon-box>div:hover .icon-tech {
+.icon-box > div:hover .icon-tech {
   width: 120px;
   height: 120px;
   padding-bottom: 6px;
 }
 
-.icon-box>div:hover {
+.icon-box > div:hover {
   box-shadow: 1px 5px 9px 3px rgba(0, 0, 0, 0.25);
 }
 
@@ -777,7 +968,7 @@ label {
 }
 
 .top-button {
-  margin: .15rem;
+  margin: 0.15rem;
 }
 
 .pure-img-responsive {
@@ -798,15 +989,13 @@ label {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-#about-info{
+#about-info {
   padding: 2em 2em 0;
 }
 
 .is-center {
   text-align: center;
 }
-
-
 
 /*
  * -- PURE FORM STYLES --
@@ -846,7 +1035,6 @@ a.pure-button-primary {
   font-size: 120%;
 }
 
-
 /*
  * -- MENU STYLES --
  * I want to customize how my .pure-menu looks at the top of the page
@@ -855,7 +1043,7 @@ a.pure-button-primary {
 .home-menu {
   padding: 0.5em;
   text-align: center;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .home-menu {
@@ -880,16 +1068,15 @@ a.pure-button-primary {
 }
 
 .home-menu a {
-  color: #6FBEF3;
+  color: #6fbef3;
 }
 
 .home-menu li a:hover,
 .home-menu li a:focus {
   background: none;
   border: none;
-  color: #AECFE5;
+  color: #aecfe5;
 }
-
 
 /*
  * -- SPLASH STYLES --
@@ -898,7 +1085,7 @@ a.pure-button-primary {
 
 .splash-container {
   /*opacity: .5;*/
-  background: rgba(31, 141, 214, .8);
+  background: rgba(31, 141, 214, 0.8);
   z-index: 1;
   overflow: hidden;
   /* The following styles are required for the "scroll-over" effect */
@@ -955,7 +1142,6 @@ a.pure-button-primary {
   min-height: 12%;
   z-index: 2;
   background: white;
-
 }
 
 /* We want to give the content area some more padding */
@@ -1008,7 +1194,6 @@ a.pure-button-primary {
  * of the mobile styles.
  */
 @media (min-width: 48em) {
-
   /* We increase the body font size */
   body {
     font-size: 16px;
@@ -1040,12 +1225,10 @@ a.pure-button-primary {
     font-size: 250%;
   }
 
-
   /* We remove the border-separator assigned to .l-box-lrg */
   .l-box-lrg {
     border: none;
   }
-
 }
 
 /*
@@ -1054,7 +1237,6 @@ a.pure-button-primary {
  * of the mobile and tablet styles.
  */
 @media (min-width: 78em) {
-
   /* We increase the header font size even more */
   .splash-head {
     font-size: 300%;
