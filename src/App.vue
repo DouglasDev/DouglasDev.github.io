@@ -157,9 +157,9 @@
               businesses, a publishing house, and a record company.
             </p>
             <p>
-              Last year, I completed a batch at the
-              <a href="http://www.recurse.com">Recurse Center</a>, which is a 3
-              month full-time self-directed programming retreat. While there, I
+              In 2019 I completed a batch at the
+              <a href="http://www.recurse.com">Recurse Center</a>, a 3 month
+              full-time self-directed programming retreat. While there, I
               immersed myself in projects that involved browser extension
               development, game development, machine learning, natural language
               processing, genetic algorithms, and computer generated music.
