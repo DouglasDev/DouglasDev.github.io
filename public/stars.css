@@ -87,6 +87,7 @@ https://mkrtchyan.ga
 
 .clouds {
   background: transparent url(clouds3.png) repeat top center;
+  background-size: contain;
   z-index: 3;
 
   -moz-animation: move-clouds-back 200s linear infinite;

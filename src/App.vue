@@ -120,7 +120,7 @@
               <div
                 :data-aos="skillType.animation"
                 v-for="skill in skillType.content"
-                data-aos-offset="index * 200"
+                :data-aos-offset="index * 200"
               >
                 <img
                   :src="'icons/' + skill.src"
@@ -170,6 +170,7 @@
                   position: relative;
                   z-index: 4;
                   margin-bottom: 0rem;
+                  display: block;
                 "
                 data-aos="fade-up"
               />
