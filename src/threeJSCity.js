@@ -1,3 +1,4 @@
+import anime from 'animejs/lib/anime.es.js';
 import * as THREE from 'three';
 
 export class ThreeJSCity {

@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      animejs:
+        specifier: ^3.2.2
+        version: 3.2.2
       aos:
         specifier: ^2.3.4
         version: 2.3.4
@@ -1064,6 +1067,9 @@ packages:
 
   alphanum-sort@1.0.2:
     resolution: {integrity: sha512-0FcBfdcmaumGPQ0qPn7Q5qTgz/ooXgIyp1rf8ik5bGX8mpE2YHjC0P/eyQvxu1GURYQgq9ozf2mteQ5ZD9YiyQ==}
+
+  animejs@3.2.2:
+    resolution: {integrity: sha512-Ao95qWLpDPXXM+WrmwcKbl6uNlC5tjnowlaRYtuVDHHoygjtIPfDUoK9NthrlZsQSKjZXlmji2TrBUAVbiH0LQ==}
 
   ansi-colors@3.2.4:
     resolution: {integrity: sha512-hHUXGagefjN2iRrID63xckIvotOXOojhQKWIPUZ4mNUZ9nLZW+7FMNoE1lOkEhNWYsx/7ysGIuJYCiMAA9FnrA==}
@@ -6329,6 +6335,8 @@ snapshots:
       uri-js: 4.4.1
 
   alphanum-sort@1.0.2: {}
+
+  animejs@3.2.2: {}
 
   ansi-colors@3.2.4: {}
 
