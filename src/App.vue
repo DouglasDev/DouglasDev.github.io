@@ -21,13 +21,6 @@
       </nav>
     </header>
     <div class="splash-container">
-      <!--         <renderer :size="{ w: 600, h: 400 }" class="threeRoot">
-          <scene>
-            <camera :position="{ z: 15 }"></camera>
-            <mesh :obj="mesh" :position="{ y: -200 }"></mesh>
-            <animation :fn="animate" :speed="3"></animation>
-          </scene>
-        </renderer> -->
       <div class="splash">
         <h1 class="splash-head">Douglas Lerner</h1>
         <p class="splash-subhead">NYC Based Web Developer</p>
@@ -61,13 +54,13 @@
     </div>
     <main class="content-wrapper">
       <div
-        class="animatedParent animateOnce"
+        class="animateOnce"
         data-sequence="500"
         style="background: #ffffff"
         id="portfolio"
       >
         <h2 class="content-head is-center">Portfolio</h2>
-        <div class="centered-buttons animated growIn" data-id="1">
+        <div class="centered-buttons" data-aos="zoom-in" data-id="1">
           <button
             class="pure-button"
             v-for="type in filterPortfolio"
@@ -84,7 +77,8 @@
         <transition-group
           name="fade"
           tag="div"
-          class="centered-layout portfolio-box animated growIn"
+          class="centered-layout portfolio-box"
+          data-aos="zoom-in"
           data-id="2"
         >
           <div
@@ -122,7 +116,7 @@
         <h2 class="content-head is-center">Technologies and Skills</h2>
         <div class="pure-g">
           <div
-            class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4 animatedParent"
+            class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4"
             data-sequence="200"
             v-for="skillType in skills"
           >
@@ -131,7 +125,7 @@
             </h3>
             <div class="icon-box">
               <div
-                :class="skillType.animation"
+                :data-aos="skillType.animation"
                 v-for="skill in skillType.content"
                 :data-id="skill['data-id']"
               >
@@ -174,7 +168,7 @@
         </div>
         <div class="stars">
           <div class="clouds">
-            <div class="animatedParent" style="opacity: 0.8">
+            <div style="opacity: 0.8">
               <img
                 src="nyc.png"
                 alt="nyc"
@@ -184,7 +178,7 @@
                   z-index: 4;
                   margin-bottom: 0rem;
                 "
-                class="animated fadeInUp"
+                data-aos="fade-up"
               />
             </div>
           </div>
@@ -218,6 +212,8 @@
   </div>
 </template>
 <script>
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import MenuSpy from 'menuspy';
 import { ThreeJSCity } from './threeJSCity.js';
 
@@ -225,6 +221,11 @@ export default {
   name: 'app',
   components: {},
   mounted() {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-out-cubic',
+      once: true,
+    });
     this.setUpLavalamp();
     const threeJSCity = new ThreeJSCity();
     threeJSCity.init();
@@ -418,7 +419,7 @@ export default {
         {
           title: 'Languages',
           titleIcon: 'fa fa-language',
-          animation: 'animated fadeInLeft',
+          animation: 'fade-left',
           content: [
             { 'data-id': 1, src: 'es6.png', name: 'JavaScript ES6+' },
             { 'data-id': 1, src: 'html5.png', name: 'HTML5' },
@@ -431,7 +432,7 @@ export default {
         {
           title: 'Frameworks',
           titleIcon: 'fa fa-crop',
-          animation: 'animated fadeInUp',
+          animation: 'fade-up',
           content: [
             { 'data-id': 1, src: 'react.png', name: 'React' },
             { 'data-id': 1, src: 'redux.png', name: 'Redux' },
@@ -443,7 +444,7 @@ export default {
         {
           title: 'Libraries',
           titleIcon: 'fa fa-cubes',
-          animation: 'animated fadeInUp',
+          animation: 'fade-up',
           content: [
             { 'data-id': 1, src: 'tone-js.png', name: 'Tone JS' },
             { 'data-id': 1, src: 'webRTC.png', name: 'WebRTC' },
@@ -455,7 +456,7 @@ export default {
         {
           title: 'Tools',
           titleIcon: 'fa fa-terminal',
-          animation: 'animated fadeInRight',
+          animation: 'fade-right',
           content: [
             { 'data-id': 1, src: 'git.png', name: 'Git' },
             {
