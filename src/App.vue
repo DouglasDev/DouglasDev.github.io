@@ -53,14 +53,9 @@
       </div>
     </div>
     <main class="content-wrapper">
-      <div
-        class="animateOnce"
-        data-sequence="500"
-        style="background: #ffffff"
-        id="portfolio"
-      >
+      <div style="background: #ffffff" id="portfolio">
         <h2 class="content-head is-center">Portfolio</h2>
-        <div class="centered-buttons" data-aos="zoom-in" data-id="1">
+        <div class="centered-buttons" data-aos="zoom-in">
           <button
             class="pure-button"
             v-for="type in filterPortfolio"
@@ -79,7 +74,6 @@
           tag="div"
           class="centered-layout portfolio-box"
           data-aos="zoom-in"
-          data-id="2"
         >
           <div
             class="content l-box-lrg pure-g project-img-box"
@@ -117,8 +111,7 @@
         <div class="pure-g">
           <div
             class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4"
-            data-sequence="200"
-            v-for="skillType in skills"
+            v-for="(skillType, index) in skills"
           >
             <h3 class="content-subhead">
               <i :class="skillType.titleIcon"></i>{{ skillType.title }}
@@ -127,7 +120,7 @@
               <div
                 :data-aos="skillType.animation"
                 v-for="skill in skillType.content"
-                :data-id="skill['data-id']"
+                data-aos-offset="index * 200"
               >
                 <img
                   :src="'icons/' + skill.src"
@@ -224,7 +217,7 @@ export default {
     AOS.init({
       duration: 1000,
       easing: 'ease-out-cubic',
-      once: true,
+      mirror: true,
     });
     this.setUpLavalamp();
     const threeJSCity = new ThreeJSCity();
@@ -282,7 +275,7 @@ export default {
           type: ['Work', 'Games', 'Front-End'],
           tech: ['React', 'Redux', 'Phaser 3', 'Spine Animations', 'Web3.js'],
           description: `In kittieFIGHT, tokens are awarded to winners of each fight session that utilizes customized fighting kittie characters derived from the Cryptokitties platform. kittieFIGHT is gamified with a unique economic token model utilizing limited supply with suppressed emissions and incentivized crowd dynamics to drive up each value of token necessary to reward owners of Cryptokitties non-fungible tokens.
-       
+
           The kittieFIGHT Dapp also solves the problem of oversupply of Cryptokitties via a kittie-sink called kittieHELL. The sink effect from fights also serves to create demand for new kitties on the Cryptokitties platform. Winners of fights on the kittieFIGHT platform can trade winning tokens to buy more Cryptokitties collectibles.`,
           details: ``,
           links: [
@@ -421,12 +414,12 @@ export default {
           titleIcon: 'fa fa-language',
           animation: 'fade-left',
           content: [
-            { 'data-id': 1, src: 'es6.png', name: 'JavaScript ES6+' },
-            { 'data-id': 1, src: 'html5.png', name: 'HTML5' },
-            { 'data-id': 2, src: 'css3.png', name: 'CSS3' },
-            { 'data-id': 2, src: 'scss.png', name: 'SCSS' },
-            { 'data-id': 3, src: 'python.ico', name: 'Python' },
-            { 'data-id': 3, src: 'elm.png', name: 'Elm' },
+            { src: 'es6.png', name: 'JavaScript ES6+' },
+            { src: 'html5.png', name: 'HTML5' },
+            { src: 'css3.png', name: 'CSS3' },
+            { src: 'scss.png', name: 'SCSS' },
+            { src: 'python.ico', name: 'Python' },
+            { src: 'elm.png', name: 'Elm' },
           ],
         },
         {
@@ -434,11 +427,11 @@ export default {
           titleIcon: 'fa fa-crop',
           animation: 'fade-up',
           content: [
-            { 'data-id': 1, src: 'react.png', name: 'React' },
-            { 'data-id': 1, src: 'redux.png', name: 'Redux' },
-            { 'data-id': 2, src: 'vue.png', name: 'Vue' },
-            { 'data-id': 2, src: 'node.png', name: 'Node Express' },
-            { 'data-id': 3, src: 'jQuery.png', name: 'jQuery' },
+            { src: 'react.png', name: 'React' },
+            { src: 'redux.png', name: 'Redux' },
+            { src: 'vue.png', name: 'Vue' },
+            { src: 'node.png', name: 'Node Express' },
+            { src: 'jQuery.png', name: 'jQuery' },
           ],
         },
         {
@@ -446,11 +439,11 @@ export default {
           titleIcon: 'fa fa-cubes',
           animation: 'fade-up',
           content: [
-            { 'data-id': 1, src: 'tone-js.png', name: 'Tone JS' },
-            { 'data-id': 1, src: 'webRTC.png', name: 'WebRTC' },
-            { 'data-id': 2, src: 'phaser.png', name: 'Phaser' },
-            { 'data-id': 2, src: 'cordova.png', name: 'Cordova' },
-            { 'data-id': 3, src: 'chrome.png', name: 'Chrome' },
+            { src: 'tone-js.png', name: 'Tone JS' },
+            { src: 'webRTC.png', name: 'WebRTC' },
+            { src: 'phaser.png', name: 'Phaser' },
+            { src: 'cordova.png', name: 'Cordova' },
+            { src: 'chrome.png', name: 'Chrome' },
           ],
         },
         {
@@ -458,15 +451,14 @@ export default {
           titleIcon: 'fa fa-terminal',
           animation: 'fade-right',
           content: [
-            { 'data-id': 1, src: 'git.png', name: 'Git' },
+            { src: 'git.png', name: 'Git' },
             {
-              'data-id': 2,
               src: 'webpack.svg',
               name: 'Webpack',
               style: { 'margin-right': '-1.2rem' },
             },
-            { 'data-id': 3, src: 'gulp.png', name: 'Gulp' },
-            { 'data-id': 3, src: 'jest.png', name: 'Jest' },
+            { src: 'gulp.png', name: 'Gulp' },
+            { src: 'jest.png', name: 'Jest' },
           ],
         },
       ],
