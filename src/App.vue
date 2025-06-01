@@ -120,7 +120,7 @@
               <div
                 :data-aos="skillType.animation"
                 v-for="skill in skillType.content"
-                :data-aos-offset="index * 200"
+                :data-aos-delay="index * 100"
               >
                 <img
                   :src="'icons/' + skill.src"
@@ -232,7 +232,7 @@ export default {
       }
       const lavalampElm = document.querySelector('.lavalamp');
       const elm = document.querySelector('#main-header');
-      const ms = new MenuSpy(elm, {
+      new MenuSpy(elm, {
         callback: positionLavalamp,
       });
       positionLavalamp({ elm: elm.querySelector('li.active') });
@@ -412,7 +412,7 @@ export default {
       skills: [
         {
           title: 'Languages',
-          titleIcon: 'fa fa-language',
+          titleIcon: 'fa-solid fa-square-binary',
           animation: 'fade-left',
           content: [
             { src: 'es6.png', name: 'JavaScript ES6+' },
@@ -425,7 +425,7 @@ export default {
         },
         {
           title: 'Frameworks',
-          titleIcon: 'fa fa-crop',
+          titleIcon: 'fa-solid fa-crop',
           animation: 'fade-up',
           content: [
             { src: 'react.png', name: 'React' },
@@ -437,7 +437,7 @@ export default {
         },
         {
           title: 'Libraries',
-          titleIcon: 'fa fa-cubes',
+          titleIcon: 'fa-solid fa-cubes',
           animation: 'fade-up',
           content: [
             { src: 'tone-js.png', name: 'Tone JS' },
@@ -449,7 +449,7 @@ export default {
         },
         {
           title: 'Tools',
-          titleIcon: 'fa fa-terminal',
+          titleIcon: 'fa-solid fa-terminal',
           animation: 'fade-right',
           content: [
             { src: 'git.png', name: 'Git' },
