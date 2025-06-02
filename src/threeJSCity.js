@@ -85,7 +85,7 @@ export class ThreeJSCity {
     const offset = 1.25;
     this.nRows = 25;
     this.nCols = 25;
-    this.staggerArray = [];
+    this.meshes = [];
 
     let newColumnBlock = 0,
       avenue = 0;
@@ -97,38 +97,39 @@ export class ThreeJSCity {
       let newRowBlock = 0,
         street = 0;
 
+      const box = new THREE.BoxGeometry(1, 1, 1);
+
       for (let row = 0; row < this.nRows; row++) {
         newRowBlock = (newRowBlock + 1) % 4;
         if (newRowBlock === 3) street += offset * 2;
 
-        const width = 1 * Math.random() * 2;
-        const height = 10 + Math.random() * 10 - 5;
-        const depth = 1 * Math.random() * 2;
+        const mesh = new THREE.Mesh(box, material);
 
-        const obj = new THREE.Mesh(
-          new THREE.BoxGeometry(width, height, depth),
-          material,
-        );
+        const width = Math.random() * 2;
+        const height = 5 + Math.random() * 10;
+        const depth = Math.random() * 2;
 
-        obj.position.x =
+        mesh.scale.set(width, height, depth);
+
+        mesh.position.x =
           row * offset -
           (this.nRows * 0.5 + this.geometry.parameters.width * 0.5) +
           street;
 
-        obj.position.y = -(this.geometry.parameters.height * 0.5); // starting y
-        obj.position.z =
+        mesh.position.y = -(this.geometry.parameters.height * 0.5); // starting y
+        mesh.position.z =
           column * offset -
           (this.nCols * 0.5 + this.geometry.parameters.width * 0.5) +
           avenue;
 
-        this.staggerArray.push(obj);
-        this.scene.add(obj);
+        this.meshes.push(mesh);
+        this.scene.add(mesh);
       }
     }
   }
 
   beginAnimationLoop() {
-    const targets = this.staggerArray.map((m) => m.position);
+    const targets = this.meshes.map((m) => m.position);
 
     gsap.to(targets, {
       y: this.geometry.parameters.height * 0.1,
