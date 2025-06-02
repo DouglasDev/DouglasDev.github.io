@@ -468,6 +468,20 @@ export default {
 };
 </script>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Roboto Flex', sans-serif;
+}
+
+main {
+  position: absolute;
+  width: 100vw;
+  height: 95vh;
+  top: 5rem;
+}
+
 canvas {
   /*  width: 100vw;
   height: 100vh;*/
@@ -524,13 +538,6 @@ canvas {
 .fixed-header .active a {
   background: #222;
   color: #fff;
-}
-
-main {
-  position: absolute;
-  width: 100vw;
-  height: 95vh;
-  top: 5rem;
 }
 
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
@@ -654,12 +661,8 @@ main {
   transform: scale(0.1);
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 .centered-buttons {
-  max-width: 30rem;
+  max-width: 47rem;
   margin: auto;
   display: flex;
   flex-flow: wrap;
@@ -723,8 +726,8 @@ html {
 }
 
 .icon-tech {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   transition: all linear 0.3s;
 }
 
@@ -744,11 +747,13 @@ html {
   justify-content: space-evenly;
   text-align: center;
   transition: all linear 0.3s;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .icon-box > div:hover .icon-tech {
-  width: 120px;
-  height: 120px;
+  width: 83px;
+  height: 83px;
 }
 
 .icon-box > div:hover {
@@ -925,11 +930,10 @@ a.pure-button-primary {
 /* This is the main heading that appears on the blue section */
 .splash-head {
   font-size: 20px;
-  font-weight: bold;
+  font-weight: normal;
   color: white;
   border: 3px solid white;
   padding: 1em 1.6em;
-  font-weight: 100;
   border-radius: 5px;
   line-height: 1em;
 }
@@ -963,10 +967,10 @@ a.pure-button-primary {
 
 /* This is the class used for the main content headers (<h2>) */
 .content-head {
-  font-weight: 400;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin: 2em 0 1em;
+  margin: 2em 0 2em;
 }
 
 /* This is a modifier class used when the content-head is inside a ribbon */
