@@ -81,7 +81,7 @@
             v-if="work.type.includes(selectedWorks) || selectedWorks == 'All'"
             :key="work.title"
           >
-            <div class="flip-card" @click="showModal(work)">
+            <button class="flip-card" @click="showModal(work)">
               <div class="flip-card-inner">
                 <div class="flip-card-front">
                   <img
@@ -101,7 +101,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </button>
           </div>
         </transition-group>
       </div>
@@ -482,11 +482,16 @@ main {
   top: 5rem;
 }
 
+button {
+  cursor: pointer;
+}
+
 canvas {
   /*  width: 100vw;
   height: 100vh;*/
   position: fixed !important;
 }
+
 .lavalamp-menu {
   position: fixed;
   top: 0;
@@ -540,13 +545,13 @@ canvas {
   color: #fff;
 }
 
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+/* the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
   background-color: transparent;
+  border: none;
   width: 300px;
   height: 200px;
   perspective: 1000px;
-  /* Remove this if you don't want the 3D effect */
 }
 
 /* This container is needed to position the front and back side */
@@ -662,6 +667,7 @@ canvas {
 }
 
 .centered-buttons {
+  font-size: 18px;
   max-width: 47rem;
   margin: auto;
   display: flex;
@@ -709,7 +715,7 @@ canvas {
 #portfolio,
 #skills,
 #about {
-  padding-top: 5rem;
+  padding-top: 4rem;
 }
 
 #about {
@@ -936,13 +942,14 @@ a.pure-button-primary {
   padding: 1em 1.6em;
   border-radius: 5px;
   line-height: 1em;
+  letter-spacing: 4px;
 }
 
 /* This is the subheading that appears on the blue section */
 .splash-subhead {
-  font-size: 1.2rem;
+  font-size: 19px;
   color: white;
-  letter-spacing: 0.05em;
+  letter-spacing: 1px;
   opacity: 0.8;
 }
 
@@ -969,8 +976,8 @@ a.pure-button-primary {
 .content-head {
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 2em 0 2em;
+  letter-spacing: 1px;
+  margin: 2em 0;
 }
 
 /* This is a modifier class used when the content-head is inside a ribbon */
@@ -980,10 +987,9 @@ a.pure-button-primary {
 
 /* This is the class used for the content sub-headers (<h3>) */
 .content-subhead {
-  /*color: #1f8dd6;*/
   text-align: center;
   font-weight: 100;
-  font-size: larger;
+  font-size: 24px;
 }
 
 .content-subhead i {
