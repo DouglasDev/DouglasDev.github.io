@@ -161,20 +161,12 @@
         </div>
         <div class="stars">
           <div class="clouds">
-            <div style="opacity: 0.8">
-              <img
-                src="nyc.png"
-                alt="nyc"
-                style="
-                  width: 100%;
-                  position: relative;
-                  z-index: 4;
-                  margin-bottom: 0rem;
-                  display: block;
-                "
-                data-aos="fade-up"
-              />
-            </div>
+            <img
+              src="imgs/nyc.png"
+              alt="nyc"
+              class="nyc-img"
+              data-aos="fade-up"
+            />
           </div>
         </div>
       </div>
@@ -1008,6 +1000,38 @@ a.pure-button-primary {
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.nyc-img {
+  opacity: 0.8;
+  width: 100%;
+  position: relative;
+  z-index: 4;
+  margin-bottom: 0rem;
+  display: block;
+}
+
+@keyframes move-clouds-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 10000px 0;
+  }
+}
+
+.stars {
+  position: relative;
+
+  background: transparent url(/imgs/stars.png) repeat top center;
+  z-index: 0;
+}
+
+.clouds {
+  background: transparent url(/imgs/clouds3.png) repeat top center;
+  background-size: contain;
+  z-index: 3;
+  animation: move-clouds-back 200s linear infinite;
 }
 
 /*
