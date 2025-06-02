@@ -132,19 +132,19 @@ export class ThreeJSCity {
 
     gsap.to(values, {
       value: 1,
-      duration: 1.2,
+      duration: 2,
       ease: getRandomArrayElement(easing),
       yoyo: true,
       repeat: 1,
       stagger: {
-        amount: 2.4,
+        amount: 5,
         grid: [this.nRows, this.nCols],
         from: getRandomArrayElement(from),
       },
       onUpdate: () => {
         for (let i = 0; i < values.length; i++) {
           const t = values[i].value;
-          const y = baseY + Math.sin(t * Math.PI) * 2;
+          const y = baseY + Math.sin(t * Math.PI) * 4;
           quickSetters[i](y);
         }
       },
